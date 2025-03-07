@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .hero-section {
+        background-image: url('images/your-background-image.jpg'); /* Replace with your image path */
+        background-size: cover;
+        background-position: center;
+        height: 80vh; /* Adjust height as needed */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        z-index: 1;
+    }
+
+    .hero-section h1, .hero-section p {
+        position: relative;
+        z-index: 2; /* Ensure text is above the overlay */
+    }
+
+    .hero-section .btn {
+        position: relative;
+        z-index: 2; /* Ensure button is above the overlay */
+    }
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Linea Global Teknologi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="info.html">Installation & Warranty Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#showcase">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="payment.html">Payment</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center section-title">Payment Information</h1>
+        <form id="payment-form">
+            <div class="mb-3">
+                <label for="cardholder-name" class="form-label">Cardholder Name</label>
+                <input type="text" class="form-control" id="cardholder-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="card-number" class="form-label">Card Number</label>
+                <input type="text" class="form-control" id="card-number" required>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="expiry-date" class="form-label">Expiry Date (MM/YY)</label>
+                    <input type="text" class="form-control" id="expiry-date" placeholder="MM/YY" required>
+                </div>
+                <div class="col">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cvv" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Payment</button>
+        </form>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 LineaGlobalTeknologi Pro. All rights reserved.</p>
+        </div>
+    </footer>
+	<script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Populate the payment form with product details
+    document.addEventListener('DOMContentLoaded', function() {
+        var productName = getUrlParameter('product');
+        var productPrice = getUrlParameter('price');
+
+        if (productName && productPrice) {
+            document.getElementById('cardholder-name').placeholder = 'Enter your name for ' + productName;
+            // You can also display the price somewhere on the payment page
+            console.log('Product:', productName, 'Price:', productPrice);
+        }
+    });
+</script>
+	<script>
+// Visitor ID generation
+document.addEventListener('DOMContentLoaded', function() {
+    if(!localStorage.getItem('visitorId')) {
+        const visitorId = 'vid-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('visitorId', visitorId);
+    }
+    document.getElementById('visitor-id').textContent = localStorage.getItem('visitorId');
+});
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you would typically handle the payment processing
+            alert('Payment submitted successfully!');
+            // Reset the form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

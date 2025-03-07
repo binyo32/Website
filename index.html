@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linea Global Teknologi - Professional CCTV Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .hero-section {
+        background-image: url('https://camarjaya.co.id/wp-content/uploads/2024/07/smart-cctv-camera.webp'); /* Replace with your image path */
+        background-size: cover;
+        background-position: center;
+        height: 80vh; /* Adjust height as needed */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        z-index: 1;
+    }
+
+    .hero-section h1, .hero-section p {
+        position: relative;
+        z-index: 2; /* Ensure text is above the overlay */
+    }
+
+    .hero-section .btn {
+        position: relative;
+        z-index: 2; /* Ensure button is above the overlay */
+    }
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Linea Global Teknologi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#showcase">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+				<li class="nav-item"><a class="nav-link" href="info.html">Installation & Warranty Info</a></li>
+				<li class="nav-item"><a class="nav-link" href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+	
+    <section class="hero-section d-flex align-items-center">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">Professional CCTV Security Solutions</h1>
+            <p class="lead mb-4">24/7 Surveillance | 4K Resolution | Smart Motion Detection</p>
+            <button class="btn btn-primary btn-lg">Get Free Consultation
+				<a href="https://wa.me/6285284802630" target="_blank">
+				</a>
+			</button>
+			
+        </div>
+    </section>
+
+    <!-- Features Section -->
+   <!-- Product Showcase Section -->
+<section id="showcase" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5 display-4">Our Security Products</h2>
+        
+        <!-- Filter Controls -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="btn-group w-100" role="group">
+                    <button type="button" class="btn btn-outline-primary active" data-filter="all">All</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="home">Home Systems</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="business">Business Solutions</button>
+                    <button type="button" class="btn btn-outline-primary" data-filter="industrial">Industrial Grade</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row g-4">
+            <!-- Product Card 1 -->
+            <div class="col-lg-4 col-md-6" data-category="home">
+                <div class="card product-card h-100 shadow">
+                    <div class="position-relative">
+                        <span class="badge bg-danger position-absolute top-0 start-0 m-2">Best Seller</span>
+                        <img src="https://hikvisionstore.pk/wp-content/uploads/2023/12/CCTV-camera-price-in-lahore-4-FHD-CCTV-Cameras-Package-hikvisionstore.pk_-866x800.jpg" class="card-img-top" alt="Home CCTV System" loading="lazy">
+                        <button class="btn btn-primary position-absolute bottom-0 end-0 m-2">
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Smart Home Security Kit</h3>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-success">Wireless</span>
+                            <div class="rating">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-half text-warning"></i>
+                                <span class="ms-2">(4.8)</span>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>4K Resolution</li>
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>Night Vision</li>
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>2-Way Audio</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="h4 text-primary">Rp 1.500.000</span>
+									<del class="text-muted large ms-3">Rp 2.000.000
+									</del>
+                            </div>
+                            <button class="btn btn-primary" onclick="addToCart('Business Surveillance Pro', 799.99)">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="addToWishlist('Business Surveillance Pro')">
+                                <i class="bi bi-heart"></i> Wishlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 (Business Solution) -->
+            <div class="col-lg-4 col-md-6" data-category="business">
+                <div class="card product-card h-100 shadow">
+                    <div class="position-relative">
+                        <span class="badge bg-warning position-absolute top-0 start-0 m-2">AI Powered</span>
+                        <img src="https://hikvisionpakistan.com/wp-content/uploads/2023/03/81.webp" class="card-img-top" alt="Business CCTV" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Business Surveillance Pro</h3>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-info">POE System</span>
+                            <div class="rating">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <span class="ms-2">(5.0)</span>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>8 Channel NVR</li>
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>Facial Recognition</li>
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>24/7 Monitoring</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="h4 text-primary">Rp 2.500.000</span>
+                                <span class="badge bg-success ms-2">Free Installation</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="addToCart('Business Surveillance Pro', 799.99)">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="addToWishlist('Business Surveillance Pro')">
+                                <i class="bi bi-heart"></i> Wishlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 (Industrial Grade) -->
+            <div class="col-lg-4 col-md-6" data-category="industrial">
+                <div class="card product-card h-100 shadow">
+                    <div class="position-relative">
+                        <span class="badge bg-dark position-absolute top-0 start-0 m-2">Explosion Proof</span>
+                        <img src="https://cdn.prod.website-files.com/5fe2250e2f83ccd437fefc04/6528df4418d5acbdabaf857c_how_to_choose_new_security_camera_business.webp" class="card-img-top" alt="Industrial CCTV" loading="lazy">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Industrial Security System</h3>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge bg-danger">IP68 Rated</span>
+                            <div class="rating">
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star text-warning"></i>
+                                <span class="ms-2">(4.2)</span>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>Thermal Imaging</li>
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>Vandal Proof</li>
+                            <li><i class="bi bi-check2-circle text-primary me-2"></i>ATEX Certified</li>
+                        </ul>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="h4 text-primary">Contact Us for a price</span>
+                                <span class="badge bg-info ms-2">Customizable</span>
+                            </div>
+                            <a href="payment.html?product=Smart%20Home%20Security%20Kit&price=499.99" class="btn btn-success">
+                    Buy Now
+                </a>
+                            <button class="btn btn-outline-secondary" onclick="addToWishlist('Business Surveillance Pro')">
+                                <i class="bi bi-heart"></i> Wishlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script>
+    let cart = [];
+    let wishlist = [];
+
+    function addToCart(productName, price, imageUrl = 'https://mbscctv.com/media/article_covers/cctv-honeywell.jpg') {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(item => item.name === productName);
+    
+    if(existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({
+            name: productName,
+            price: price,
+            image: imageUrl,
+            quantity: 1
+        });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    alert(`${productName} added to cart!`);
+}
+
+	function updateCartCount() {
+		const cart = JSON.parse(localStorage.getItem('cart')) || [];
+		document.querySelectorAll('#cart-count').forEach(element => {
+			element.textContent = cart.length;
+		});
+	}
+
+// Initialize cart count on page load
+document.addEventListener('DOMContentLoaded', updateCartCount);
+
+    function addToWishlist(productName) {
+        wishlist.push(productName);
+        alert(`${productName} has been added to your wishlist!`);
+        console.log(wishlist);
+    }
+
+    function quickView(productName) {
+        alert(`Quick view for ${productName}`);
+    }
+</script>
+        <!-- Comparison Table -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4">System Comparison</h3>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Feature</th>
+                                <th>Home System</th>
+                                <th>Business Pro</th>
+                                <th>Industrial</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Resolution</td>
+                                <td>4K Ultra HD</td>
+                                <td>8MP Super HD</td>
+                                <td>5MP Thermal</td>
+                            </tr>
+                            <tr>
+                                <td>Weatherproof</td>
+                                <td>IP65</td>
+                                <td>IP66</td>
+                                <td>IP68/ATEX</td>
+                            </tr>
+                            <tr>
+                                <td>Warranty</td>
+                                <td>2 Years</td>
+                                <td>3 Years</td>
+                                <td>5 Years</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .product-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: 1px solid rgba(0,0,0,0.125);
+    }
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,0.175);
+    }
+    .rating {
+        font-size: 0.9rem;
+    }
+    .table thead th {
+        background: #212529;
+        color: white;
+    }
+    .table tbody tr:nth-child(odd) {
+        background-color: rgba(0,0,0,0.02);
+    }
+</style>
+
+<script>
+    // Filter functionality
+    document.querySelectorAll('[data-filter]').forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            document.querySelectorAll('.col-lg-4').forEach(card => {
+                card.style.display = (filter === 'all' || card.dataset.category === filter) ? 
+                    'block' : 'none';
+            });
+            document.querySelectorAll('[data-filter]').forEach(btn => 
+                btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
+</script>
+
+    <!-- Products Section -->
+    <section id="products" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Security Solutions</h2>
+            <div class="row">
+                <!-- Product Cards -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <span class="badge bg-danger guarantee-badge">3-Year Warranty</span>
+                        <img src="https://mbscctv.com/media/article_covers/cctv-honeywell.jpg" class="card-img-top" alt="4K CCTV System">
+                        <div class="card-body">
+                            <h5 class="card-title">4K Ultra HD Security System</h5>
+                            <p class="card-text">8-Channel NVR with 4TB Storage</p>
+                            <ul class="list-unstyled">
+                                <li>✔️ 4K Resolution Cameras</li>
+                                <li>✔️ Weatherproof Design</li>
+                                <li>✔️ Smart Motion Alerts</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="text-primary">Rp 1.000.000</h4>
+                                <button class="btn btn-primary" onclick="addToCart('Business Surveillance Pro', 799.99)">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="addToWishlist('Business Surveillance Pro')">
+                                <i class="bi bi-heart"></i> Wishlist
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat similar product cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <p class="card-text">"The best security investment we've made!"</p>
+                            <h5 class="card-title">- John Smith</h5>
+                            <p class="text-muted">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- More testimonials -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <a href="https://wa.me/6285284802630" target="_blank">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/2044px-WhatsApp.svg.png" alt="WhatsApp" style="width: 50px; height: 50px;">
+					</a>
+                    <p>Email: support@lineaglobalteknologi.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="nav-item"><a class="nav-link" href="info.html" class="text-white">Installation Guide</a></li>
+                        <li class="nav-item"><a class="nav-link" href="info.html" class="text-white">Warranty Info</a></li>
+                        <li class="nav-item"><a class="nav-link" href="info.html" class="text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <form>
+                        <input type="email" class="form-control mb-2" placeholder="Enter your email">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+	<script>
+// Visitor ID generation
+document.addEventListener('DOMContentLoaded', function() {
+    if(!localStorage.getItem('visitorId')) {
+        const visitorId = 'vid-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('visitorId', visitorId);
+    }
+    document.getElementById('visitor-id').textContent = localStorage.getItem('visitorId');
+});
+</script>
+    <script>
+        // Live chat support button functionality
+        //function openChat() {
+        //    window.open('https://your-live-chat-url.com', 'Live Chat', 'width=400,height=600');
+        //}
+    </script>
+    <button onclick="#" style="position: fixed; bottom: 20px; right: 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; padding: 10px 15px; cursor: pointer;">
+        Live Chat Support
+    </button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Add additional JS for:
+        1. Shopping cart functionality
+        2. Live chat support
+        3. Product configuration tool
+        4. Payment gateway integration -->
+</body>
+</html>

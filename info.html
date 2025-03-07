@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation Guide, Warranty Info, and FAQ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .section-title {
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Linea Global Teknologi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="info.html">Installation & Warranty Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#showcase">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center section-title">Installation Guide, Warranty Info, and FAQ</h1>
+
+        <!-- Installation Guide Section -->
+        <section id="installation">
+            <h2 class="section-title">Installation Guide</h2>
+            <p>Follow these steps to install your CCTV system:</p>
+            <ol>
+                <li>Choose the installation location for your cameras.</li>
+                <li>Mount the cameras securely using the provided brackets.</li>
+                <li>Connect the cameras to the NVR (Network Video Recorder).</li>
+                <li>Power on the cameras and NVR.</li>
+                <li>Configure the system using the mobile app or web interface.</li>
+                <li>Test the camera feeds to ensure proper installation.</li>
+            </ol>
+        </section>
+
+        <!-- Warranty Information Section -->
+        <section id="warranty">
+            <h2 class="section-title">Warranty Information</h2>
+            <p>All SecureVision Pro products come with a 3-year warranty covering manufacturing defects. The warranty does not cover:</p>
+            <ul>
+                <li>Damage caused by improper installation.</li>
+                <li>Accidental damage or misuse.</li>
+                <li>Normal wear and tear.</li>
+            </ul>
+            <p>To claim your warranty, please contact our support team with your purchase details.</p>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
+            <h5>1. How do I reset my camera?</h5>
+            <p>To reset your camera, press and hold the reset button for 10 seconds until the LED indicator blinks.</p>
+
+            <h5>2. Can I access my cameras remotely?</h5>
+            <p>Yes, you can access your cameras remotely using our mobile app or web portal.</p>
+
+            <h5>3. What should I do if my camera is not working?</h5>
+            <p>Check the power supply and ensure the camera is connected to the network. If the issue persists, contact support.</p>
+        </section>
+    </div>
+	
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 LineaGlobalTeknologi Pro. All rights reserved.</p>
+        </div>
+    </footer>
+	<script>
+// Visitor ID generation
+document.addEventListener('DOMContentLoaded', function() {
+    if(!localStorage.getItem('visitorId')) {
+        const visitorId = 'vid-' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('visitorId', visitorId);
+    }
+    document.getElementById('visitor-id').textContent = localStorage.getItem('visitorId');
+});
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
