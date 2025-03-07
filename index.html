@@ -328,6 +328,18 @@ document.addEventListener('DOMContentLoaded', updateCartCount);
         background-color: rgba(0,0,0,0.02);
     }
 </style>
+<style>
+.review-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.review-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
 
 <script>
     // Filter functionality
@@ -375,29 +387,154 @@ document.addEventListener('DOMContentLoaded', updateCartCount);
                         </div>
                     </div>
                 </div>
+				<div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <span class="badge bg-danger guarantee-badge">3-Year Warranty</span>
+                        <img src="https://mbscctv.com/media/article_covers/cctv-honeywell.jpg" class="card-img-top" alt="4K CCTV System">
+                        <div class="card-body">
+                            <h5 class="card-title">4K Ultra HD Security System</h5>
+                            <p class="card-text">8-Channel NVR with 4TB Storage</p>
+                            <ul class="list-unstyled">
+                                <li>✔️ 4K Resolution Cameras</li>
+                                <li>✔️ Weatherproof Design</li>
+                                <li>✔️ Smart Motion Alerts</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="text-primary">Rp 1.000.000</h4>
+                                <button class="btn btn-primary" onclick="addToCart('Business Surveillance Pro', 799.99)">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="addToWishlist('Business Surveillance Pro')">
+                                <i class="bi bi-heart"></i> Wishlist
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card product-card h-100">
+                        <span class="badge bg-danger guarantee-badge">3-Year Warranty</span>
+                        <img src="https://mbscctv.com/media/article_covers/cctv-honeywell.jpg" class="card-img-top" alt="4K CCTV System">
+                        <div class="card-body">
+                            <h5 class="card-title">4K Ultra HD Security System</h5>
+                            <p class="card-text">8-Channel NVR with 4TB Storage</p>
+                            <ul class="list-unstyled">
+                                <li>✔️ 4K Resolution Cameras</li>
+                                <li>✔️ Weatherproof Design</li>
+                                <li>✔️ Smart Motion Alerts</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="text-primary">Rp 1.000.000</h4>
+                                <button class="btn btn-primary" onclick="addToCart('Business Surveillance Pro', 799.99)">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="addToWishlist('Business Surveillance Pro')">
+                                <i class="bi bi-heart"></i> Wishlist
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Repeat similar product cards -->
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">What Our Clients Say</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <p class="card-text">"The best security investment we've made!"</p>
-                            <h5 class="card-title">- John Smith</h5>
-                            <p class="text-muted">Business Owner</p>
-                        </div>
-                    </div>
+    <!-- Client Reviews Section -->
+<!-- Client Reviews Section -->
+<section id="client-reviews" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">What Our Clients Say</h2>
+        <div class="marquee">
+            <div class="marquee-content">
+                <div class="review-card">
+                    <p class="card-text">"Excellent service and top-notch products! Highly recommend!"</p>
+                    <h5 class="card-title">- Alice Johnson</h5>
+                    <p class="text-muted">Homeowner</p>
                 </div>
-                <!-- More testimonials -->
+                <div class="review-card">
+                    <p class="card-text">"The installation was seamless, and the support team is fantastic!"</p>
+                    <h5 class="card-title">- Mark Thompson</h5>
+                    <p class="text-muted">Business Owner</p>
+                </div>
+                <div class="review-card">
+                    <p class="card-text">"Great value for money! The cameras are high quality and reliable."</p>
+                    <h5 class="card-title">- Sarah Lee</h5>
+                    <p class="text-muted">Property Manager</p>
+                </div>
+                <div class="review-card">
+                    <p class="card-text">"I feel much safer with their security solutions. Highly satisfied!"</p>
+                    <h5 class="card-title">- John Smith</h5>
+                    <p class="text-muted">Retail Store Owner</p>
+                </div>
+                <div class="review-card">
+                    <p class="card-text">"Professional team and excellent customer service!"</p>
+                    <h5 class="card-title">- Emily Davis</h5>
+                    <p class="text-muted">Office Manager</p>
+                </div>
+                <div class="review-card">
+                    <p class="card-text">"The best investment for my home security!"</p>
+                    <h5 class="card-title">- Michael Brown</h5>
+                    <p class="text-muted">Homeowner</p>
+                </div>
+                <div class="review-card">
+                    <p class="card-text">"Fast installation and great support. Highly recommend!"</p>
+                    <h5 class="card-title">- Jessica Wilson</h5>
+                    <p class="text-muted">Business Owner</p>
+                </div>
+                <div class="review-card">
+                    <p class="card-text">"Their products are reliable and easy to use!"</p>
+                    <h5 class="card-title">- David Martinez</h5>
+                    <p class="text-muted">Homeowner</p>
+                </div>
+                <div class="review-card">
+                    <p class="card-text">"I love the smart features of the cameras!"</p>
+                    <h5 class="card-title">- Laura Garcia</h5>
+                    <p class="text-muted">Property Owner</p>
+                </div>
+                <div class="review-card">
+                    <p class="card-text">"Fantastic experience from start to finish!"</p>
+                    <h5 class="card-title">- Chris Anderson</h5>
+                    <p class="text-muted">Business Owner</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<style>
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 40s linear infinite;
+}
+
+.review-card {
+    display: inline-block;
+    width: 300px; /* Adjust width as needed */
+    margin: 0 15px;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+}
+
+.review-card h5 {
+    margin-top: 10px;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}</style>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
@@ -437,6 +574,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     document.getElementById('visitor-id').textContent = localStorage.getItem('visitorId');
 });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const reviewCards = document.querySelectorAll('.review-card');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        reviewCards.forEach(card => {
+            observer.observe(card);
+        });
+    });
 </script>
     <script>
         // Live chat support button functionality
