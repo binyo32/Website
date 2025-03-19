@@ -7,6 +7,18 @@
   <!-- Google Fonts: Modern Sans-Serif -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
   <style>
+    /* Background Blur using a Pseudo-Element */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("https://www.moriconsulting.it/_mamawp/wp-content/uploads/2023/04/iStock-1174652880-1980x1200.jpg") no-repeat center center/cover;
+      filter: blur(8px);
+      z-index: -1;
+    }
     /* Modern Security-Inspired Design */
     body {
       font-family: 'Montserrat', sans-serif;
@@ -64,7 +76,6 @@
       margin: 4px 0;
       transition: all 0.3s ease;
     }
-    /* Transform hamburger into X when open */
     .menu-toggle.open .bar:nth-child(1) {
       transform: translateY(7px) rotate(45deg);
     }
@@ -75,7 +86,6 @@
       transform: translateY(-7px) rotate(-45deg);
     }
     .dropdown-menu {
-      /* For desktop, display menu horizontally */
       display: flex;
     }
     .dropdown-menu ul {
@@ -107,7 +117,6 @@
         top: 70px;
         left: 0;
         width: 100%;
-        /* Use the same gradient as header for blending */
         background: linear-gradient(135deg, #0d47a1, #001f3f);
         flex-direction: column;
         align-items: center;
@@ -229,15 +238,45 @@
       color: #aaa;
       margin: 0;
     }
-    /* About & Contact Sections */
-    #about h2, 
-    #contact h2 {
+    /* Quantity Selector for Product Modal */
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+    }
+    .quantity-selector button {
+      background: #00aaff;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .quantity-selector button:hover {
+      transform: scale(1.1);
+    }
+    .quantity-selector button:active {
+      transform: scale(0.95);
+    }
+    .quantity-selector span {
+      margin: 0 10px;
+      font-size: 18px;
+      min-width: 20px;
+      text-align: center;
+    }
+    /* About Section */
+    #about h2 {
       text-align: center;
       font-size: 36px;
       color: #fff;
     }
-    #about p, 
-    #contact p {
+    #about p {
       font-size: 18px;
       max-width: 800px;
       margin: 20px auto;
@@ -302,6 +341,22 @@
       text-align: right;
       color: #aaa;
     }
+    /* Footer as Contact Us */
+    footer {
+      background: #1e1e1e;
+      padding: 40px 20px;
+      text-align: center;
+      color: #ccc;
+      margin-top: 40px;
+    }
+    footer h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    footer a {
+      color: #00aaff;
+    }
     /* Modals */
     .modal {
       display: none;
@@ -314,17 +369,27 @@
       background: rgba(0,0,0,0.8);
       align-items: center;
       justify-content: center;
-      animation: fadeIn 0.5s ease-in;
     }
     .modal-content {
       background: #222;
-      padding: 30px;
+      padding: 15px;
       border-radius: 8px;
       width: 90%;
-      max-width: 500px;
+      max-width: 300px;
       position: relative;
       box-shadow: 0 6px 12px rgba(0,0,0,0.8);
       color: #e0e0e0;
+      transition: transform 0.3s;
+    }
+    .modal-content:hover {
+      transform: scale(1.02);
+    }
+    @media (max-width: 480px) {
+      .modal-content {
+        padding: 10px;
+        width: 95%;
+        max-width: 95%;
+      }
     }
     .close-btn, .close-cart, .close-payment {
       position: absolute;
@@ -335,112 +400,86 @@
       cursor: pointer;
       color: #fff;
     }
-    /* Product Modal Button */
-    #add-to-cart {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #00aaff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background 0.3s;
-    }
-    #add-to-cart:hover {
-      background: #0088cc;
-    }
-    /* Cart Modal */
-    #cart-items {
-      max-height: 300px;
-      overflow-y: auto;
-      margin: 20px 0;
-      text-align: left;
-    }
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #444;
-      padding: 10px 0;
-      font-size: 18px;
-      color: #ccc;
-    }
-    .remove-item {
-      background: none;
-      border: none;
-      color: #ff4444;
-      font-size: 24px;
-      cursor: pointer;
-    }
-    #checkout-btn {
-      padding: 12px 24px;
-      background: #00cc66;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 18px;
-      transition: background 0.3s;
-    }
-    #checkout-btn:hover {
-      background: #00994d;
-    }
-    /* Payment Modal Form */
-    .form-group {
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 16px;
-      font-weight: 500;
-    }
-    input[type="text"],
-    input[type="tel"],
-    input[type="number"] {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #555;
-      border-radius: 4px;
-      font-size: 16px;
-      background: #333;
-      color: #fff;
-      box-sizing: border-box;
-    }
-    .row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .row .form-group {
-      flex: 1;
-      min-width: 140px;
-    }
+    /* Interactive Button Styling */
     .btn {
       width: 100%;
       padding: 14px;
-      background: #00aaff;
+      background: linear-gradient(45deg, #00aaff, #005f99);
       border: none;
       color: #fff;
       font-size: 18px;
       border-radius: 4px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
     }
     .btn:hover {
-      background: #0088cc;
+      transform: scale(1.07);
+      background: linear-gradient(45deg, #0088cc, #004f80);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
     }
-    .card-preview {
-      margin-top: 20px;
-      background: #333;
-      padding: 15px;
-      border-radius: 4px;
-      text-align: center;
+    .btn:active {
+      transform: scale(0.98);
+    }
+    /* Ripple effect for buttons (applies to .btn and other interactive buttons) */
+    .btn .ripple,
+    .increment-cart .ripple,
+    .decrement-cart .ripple,
+    #increment-qty .ripple,
+    #decrement-qty .ripple,
+    .remove-item .ripple {
+      position: absolute;
+      border-radius: 50%;
+      transform: scale(0);
+      background: rgba(255, 255, 255, 0.6);
+      animation: ripple-animation 0.6s linear;
+      pointer-events: none;
+    }
+    @keyframes ripple-animation {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+    /* Payment Methods Styling */
+    .payment-methods {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .payment-methods h3 {
       font-size: 18px;
-      letter-spacing: 1px;
-      color: #ccc;
+      margin-bottom: 10px;
+    }
+    .payment-methods label {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    .payment-methods label:hover {
+      background: #333;
+      transform: scale(1.02);
+    }
+    .payment-methods input[type="radio"] {
+      margin-right: 8px;
+    }
+    /* Payment Step Buttons */
+    #payment-next-btn,
+    #payment-done-btn,
+    #payment-back-btn {
+      margin-top: 10px;
+    }
+    /* Cart Total Styling */
+    .cart-total {
+      text-align: right;
+      margin-top: 10px;
+      font-size: 18px;
+      color: #fff;
     }
     /* Back-to-Top Button */
     #backToTop {
@@ -461,13 +500,63 @@
     #backToTop:hover {
       background: #0088cc;
     }
-    /* Responsive Adjustments */
-    @media (max-width: 480px) {
-      body { font-size: 14px; }
-      header .logo h1 { font-size: 22px; }
-      nav ul li a { font-size: 14px; }
-      .row { flex-direction: column; }
-      section { padding: 60px 10px; }
+    /* Animate cart items as they appear */
+    .cart-item {
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: cartItemFadeIn 0.4s forwards;
+    }
+    @keyframes cartItemFadeIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    /* Enhanced interactivity for cart quantity and remove buttons */
+    .increment-cart, .decrement-cart, #increment-qty, #decrement-qty, .remove-item {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      cursor: pointer;
+    }
+    .increment-cart:hover, .decrement-cart:hover, #increment-qty:hover, #decrement-qty:hover, .remove-item:hover {
+      transform: scale(1.1);
+    }
+    .increment-cart:active, .decrement-cart:active, #increment-qty:active, #decrement-qty:active, .remove-item:active {
+      transform: scale(0.95);
+    }
+    /* Additional styling for the remove button (with rotation effect) */
+    .remove-item {
+      background: none;
+      border: none;
+      color: #e53935;
+      font-size: 20px;
+      transition: transform 0.3s;
+    }
+    .remove-item:hover {
+      transform: rotate(90deg) scale(1.1);
+    }
+    /* New Fade Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    .fade-out {
+      animation: fadeOut 1s ease-in-out forwards;
+    }
+    .fade-in-scale {
+      animation: fadeInScale 0.7s ease-in-out forwards;
     }
   </style>
 </head>
@@ -617,11 +706,11 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
+  <!-- Footer as Contact Us -->
+  <footer id="contact">
     <h2>Contact Us</h2>
     <p>For inquiries or support, please email <a href="mailto:support@lineaglobaltech.com">support@lineaglobaltech.com</a> or call (555) 987‑6543. Our team is dedicated to safeguarding your security needs.</p>
-  </section>
+  </footer>
 
   <!-- Back-to-Top Button -->
   <button id="backToTop" title="Back to Top">&#8679;</button>
@@ -634,7 +723,13 @@
       <h2 id="modal-title"></h2>
       <p id="modal-price"></p>
       <p id="modal-description"></p>
-      <button id="add-to-cart">Add to Cart</button>
+      <!-- Quantity Selector for Product Modal -->
+      <div class="quantity-selector">
+        <button id="decrement-qty">-</button>
+        <span id="selected-qty">1</span>
+        <button id="increment-qty">+</button>
+      </div>
+      <button id="add-to-cart" class="btn">Add to Cart</button>
     </div>
   </div>
 
@@ -646,7 +741,9 @@
       <div id="cart-items">
         <!-- Cart items will be inserted dynamically -->
       </div>
-      <button id="checkout-btn">Checkout</button>
+      <!-- Total Amount Display -->
+      <div class="cart-total"></div>
+      <button id="checkout-btn" class="btn">Checkout</button>
     </div>
   </div>
 
@@ -658,35 +755,36 @@
         Secure Payment
       </div>
       <div class="content" style="padding:20px;">
-        <form id="payment-form">
-          <div class="form-group">
-            <label for="card-number">Card Number</label>
-            <input type="tel" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="off" required>
+        <!-- Payment Method Selection Step -->
+        <div id="payment-method-container">
+          <div class="payment-methods">
+            <h3>Pilih Metode Pembayaran</h3>
+            <label>
+              <input type="radio" name="payment-method" value="bca" checked> BCA Virtual Account
+            </label>
+            <label>
+              <input type="radio" name="payment-method" value="mandiri"> Mandiri Virtual Account
+            </label>
+            <label>
+              <input type="radio" name="payment-method" value="bni"> BNI Virtual Account
+            </label>
+            <label>
+              <input type="radio" name="payment-method" value="bri"> BRI Virtual Account
+            </label>
+            <label>
+              <input type="radio" name="payment-method" value="ovo"> OVO
+            </label>
+            <label>
+              <input type="radio" name="payment-method" value="gopay"> GoPay
+            </label>
           </div>
-          <div class="row">
-            <div class="form-group">
-              <label for="card-name">Name on Card</label>
-              <input type="text" id="card-name" placeholder="John Doe" required>
-            </div>
-            <div class="form-group">
-              <label for="card-cvv">CVV</label>
-              <input type="number" id="card-cvv" placeholder="123" maxlength="3" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group">
-              <label for="card-expiry">Expiry Date</label>
-              <input type="text" id="card-expiry" placeholder="MM/YY" required>
-            </div>
-            <div class="form-group">
-              <label for="card-zip">ZIP/Postal Code</label>
-              <input type="text" id="card-zip" placeholder="12345" required>
-            </div>
-          </div>
-          <button type="submit" class="btn">Pay Now</button>
-        </form>
-        <div class="card-preview" id="card-preview">
-          Card Preview: XXXX XXXX XXXX XXXX
+          <button id="payment-next-btn" class="btn">Continue</button>
+        </div>
+        <!-- Payment Details Step (Message) -->
+        <div id="payment-details-container" style="display: none; text-align: center;">
+          <p style="margin-bottom: 15px; font-size: 16px;">Maaf anda miskin tidak punya uang lagi</p>
+          <button id="payment-back-btn" class="btn" style="margin-bottom: 10px; background: #555;">Back</button>
+          <button id="payment-done-btn" class="btn">Done</button>
         </div>
       </div>
     </div>
@@ -739,6 +837,7 @@
 
     let cart = [];
     let currentProductId = null;
+    let productQty = 1; // default quantity in product modal
 
     // Modal Element References
     const productModal = document.getElementById("product-modal");
@@ -749,6 +848,11 @@
     const addToCartBtn = document.getElementById("add-to-cart");
     const closeProductBtn = document.querySelector(".close-btn");
 
+    // Quantity selector elements in product modal
+    const incrementQtyBtn = document.getElementById("increment-qty");
+    const decrementQtyBtn = document.getElementById("decrement-qty");
+    const selectedQtySpan = document.getElementById("selected-qty");
+
     const cartModal = document.getElementById("cart-modal");
     const cartItemsContainer = document.getElementById("cart-items");
     const closeCartBtn = document.querySelector(".close-cart");
@@ -758,9 +862,79 @@
 
     const paymentModal = document.getElementById("payment-modal");
     const closePaymentBtn = document.querySelector(".close-payment");
-    const paymentForm = document.getElementById("payment-form");
-    const cardNumberInput = document.getElementById("card-number");
-    const cardPreview = document.getElementById("card-preview");
+
+    // New Payment Step Containers and Buttons
+    const paymentMethodContainer = document.getElementById("payment-method-container");
+    const paymentDetailsContainer = document.getElementById("payment-details-container");
+    const paymentNextBtn = document.getElementById("payment-next-btn");
+    const paymentBackBtn = document.getElementById("payment-back-btn");
+    const paymentDoneBtn = document.getElementById("payment-done-btn");
+
+    // Helper Functions for Modal Animations
+    function openModal(modal) {
+      modal.style.display = "flex";
+      modal.classList.add("fade-in-scale");
+      modal.addEventListener("animationend", function handler() {
+        modal.classList.remove("fade-in-scale");
+        modal.removeEventListener("animationend", handler);
+      });
+    }
+
+    function closeModal(modal) {
+      modal.classList.add("fade-out");
+      modal.addEventListener("animationend", function handler() {
+        modal.style.display = "none";
+        modal.classList.remove("fade-out");
+        modal.removeEventListener("animationend", handler);
+      });
+    }
+
+    // Animate product image flying into the cart
+    function animateToCart() {
+      const imgRect = modalImg.getBoundingClientRect();
+      const cartRect = cartIcon.getBoundingClientRect();
+      
+      const clone = modalImg.cloneNode(true);
+      clone.style.position = 'fixed';
+      clone.style.left = imgRect.left + 'px';
+      clone.style.top = imgRect.top + 'px';
+      clone.style.width = imgRect.width + 'px';
+      clone.style.height = imgRect.height + 'px';
+      clone.style.transition = 'all 0.8s ease-in-out';
+      clone.style.zIndex = 1000;
+      document.body.appendChild(clone);
+      
+      clone.offsetWidth;
+      
+      const destX = cartRect.left + cartRect.width / 2 - imgRect.width / 4;
+      const destY = cartRect.top + cartRect.height / 2 - imgRect.height / 4;
+      
+      clone.style.left = destX + 'px';
+      clone.style.top = destY + 'px';
+      clone.style.width = imgRect.width / 2 + 'px';
+      clone.style.height = imgRect.height / 2 + 'px';
+      
+      clone.addEventListener('transitionend', () => {
+        clone.remove();
+      });
+    }
+
+    function resetProductQty() {
+      productQty = 1;
+      selectedQtySpan.textContent = productQty;
+    }
+
+    // Product modal quantity listeners
+    incrementQtyBtn.addEventListener("click", () => {
+      productQty++;
+      selectedQtySpan.textContent = productQty;
+    });
+    decrementQtyBtn.addEventListener("click", () => {
+      if (productQty > 1) {
+        productQty--;
+        selectedQtySpan.textContent = productQty;
+      }
+    });
 
     // Open product modal on product card click
     document.querySelectorAll(".product-card").forEach(card => {
@@ -773,32 +947,34 @@
           modalTitle.textContent = product.title;
           modalPrice.textContent = product.price;
           modalDescription.textContent = product.description;
-          productModal.style.display = "flex";
+          resetProductQty();
+          openModal(productModal);
         }
       });
     });
 
     // Close product modal
     closeProductBtn.addEventListener("click", () => {
-      productModal.style.display = "none";
+      closeModal(productModal);
     });
 
-    // Add product to cart
+    // Add product to cart and animate
     addToCartBtn.addEventListener("click", () => {
       if (currentProductId) {
         const existingItem = cart.find(item => item.id === currentProductId);
         if (existingItem) {
-          existingItem.quantity += 1;
+          existingItem.quantity += productQty;
         } else {
           cart.push({
             id: currentProductId,
             title: products[currentProductId].title,
             price: products[currentProductId].price,
-            quantity: 1
+            quantity: productQty
           });
         }
         updateCartCount();
-        productModal.style.display = "none";
+        animateToCart();
+        closeModal(productModal);
       }
     });
 
@@ -808,7 +984,21 @@
       cartCountElem.textContent = count;
     }
 
-    // Update & display cart modal
+    // Helper functions for price parsing/formatting
+    function parsePrice(priceStr) {
+      let numStr = priceStr.replace("Rp", "").trim().replace(/\./g, "");
+      return parseInt(numStr);
+    }
+    function formatPrice(num) {
+      return "Rp " + num.toLocaleString('id-ID');
+    }
+    function calculateTotal() {
+      let total = 0;
+      cart.forEach(item => {
+        total += parsePrice(item.price) * item.quantity;
+      });
+      return total;
+    }
     function updateCartModal() {
       cartItemsContainer.innerHTML = "";
       if (cart.length === 0) {
@@ -818,81 +1008,102 @@
           const div = document.createElement("div");
           div.className = "cart-item";
           div.innerHTML = `
-            <span>${item.title} (x${item.quantity}) - ${item.price}</span>
+            <span>${item.title} - ${item.price}</span>
+            <div class="quantity-control">
+              <button class="decrement-cart" data-id="${item.id}">-</button>
+              <span class="cart-quantity">${item.quantity}</span>
+              <button class="increment-cart" data-id="${item.id}">+</button>
+            </div>
             <button class="remove-item" data-id="${item.id}">&times;</button>
           `;
           cartItemsContainer.appendChild(div);
         });
+        const total = calculateTotal();
+        const totalDiv = document.createElement("div");
+        totalDiv.className = "cart-total";
+        totalDiv.innerHTML = `<strong>Total: ${formatPrice(total)}</strong>`;
+        cartItemsContainer.appendChild(totalDiv);
       }
     }
 
-    // Open cart modal when cart icon is clicked
+    // Open cart modal on cart icon click
     cartIcon.addEventListener("click", () => {
       updateCartModal();
-      cartModal.style.display = "flex";
+      openModal(cartModal);
     });
-
     // Close cart modal
     closeCartBtn.addEventListener("click", () => {
-      cartModal.style.display = "none";
+      closeModal(cartModal);
     });
-
-    // Remove item from cart
+    // Delegate cart modal quantity buttons and remove button
     cartItemsContainer.addEventListener("click", (e) => {
+      const id = e.target.getAttribute("data-id");
       if (e.target.classList.contains("remove-item")) {
-        const id = e.target.getAttribute("data-id");
         cart = cart.filter(item => item.id !== id);
         updateCartModal();
         updateCartCount();
+      } else if (e.target.classList.contains("increment-cart")) {
+        const item = cart.find(item => item.id === id);
+        if (item) {
+          item.quantity++;
+          updateCartModal();
+          updateCartCount();
+        }
+      } else if (e.target.classList.contains("decrement-cart")) {
+        const item = cart.find(item => item.id === id);
+        if (item) {
+          if (item.quantity > 1) {
+            item.quantity--;
+          } else {
+            cart = cart.filter(item => item.id !== id);
+          }
+          updateCartModal();
+          updateCartCount();
+        }
       }
     });
 
-    // Open payment modal when checkout is clicked (with empty cart check)
+    // Payment Modal behavior
     checkoutBtn.addEventListener("click", () => {
       if(cart.length === 0) {
         alert("Your cart is empty. Please add an item before proceeding to payment.");
         return;
       }
-      cartModal.style.display = "none";
-      paymentModal.style.display = "flex";
+      closeModal(cartModal);
+      openModal(paymentModal);
+      paymentMethodContainer.style.display = "block";
+      paymentDetailsContainer.style.display = "none";
     });
-
-    // Update card preview dynamically
-    cardNumberInput.addEventListener('input', function() {
-      let rawValue = cardNumberInput.value.replace(/\D/g, '');
-      let formattedValue = rawValue.replace(/(.{4})/g, '$1 ').trim();
-      cardPreview.textContent = 'Card Preview: ' + (formattedValue || 'XXXX XXXX XXXX XXXX');
+    // When "Continue" is clicked, show the next step with the message
+    paymentNextBtn.addEventListener("click", () => {
+      paymentMethodContainer.style.display = "none";
+      paymentDetailsContainer.style.display = "block";
     });
-
-    // Simulate payment processing
-    paymentForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('Payment processed successfully!');
-      paymentForm.reset();
-      cardPreview.textContent = 'Card Preview: XXXX XXXX XXXX XXXX';
-      paymentModal.style.display = "none";
-      cart = [];
-      updateCartCount();
+    // "Back" button returns to payment method selection
+    paymentBackBtn.addEventListener("click", () => {
+      paymentDetailsContainer.style.display = "none";
+      paymentMethodContainer.style.display = "block";
     });
-
-    // Close payment modal
+    // "Done" button closes the payment modal
+    paymentDoneBtn.addEventListener("click", () => {
+      closeModal(paymentModal);
+    });
+    // Close payment modal via close icon
     closePaymentBtn.addEventListener("click", () => {
-      paymentModal.style.display = "none";
+      closeModal(paymentModal);
     });
-
-    // Close modals when clicking outside modal content
+    // Close any modal when clicking outside its content
     window.addEventListener("click", (e) => {
       if (e.target === productModal) {
-        productModal.style.display = "none";
+        closeModal(productModal);
       }
       if (e.target === cartModal) {
-        cartModal.style.display = "none";
+        closeModal(cartModal);
       }
       if (e.target === paymentModal) {
-        paymentModal.style.display = "none";
+        closeModal(paymentModal);
       }
     });
-
     // Back-to-Top Button Functionality
     const backToTopBtn = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
@@ -905,6 +1116,47 @@
     backToTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // ============================
+    // Ripple Effect for Interactive Buttons (.btn)
+    // ============================
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', function (e) {
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        this.appendChild(ripple);
+
+        // Calculate click position relative to the button
+        const rect = this.getBoundingClientRect();
+        ripple.style.left = (e.clientX - rect.left) + 'px';
+        ripple.style.top = (e.clientY - rect.top) + 'px';
+
+        // Remove the ripple element after the animation ends
+        ripple.addEventListener('animationend', () => {
+          ripple.remove();
+        });
+      });
+    });
+
+    // ============================
+    // Ripple Effect for Increment, Decrement & Remove Buttons
+    // ============================
+    document.querySelectorAll('.increment-cart, .decrement-cart, #increment-qty, #decrement-qty, .remove-item')
+      .forEach(button => {
+        button.addEventListener('click', function (e) {
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple';
+          this.appendChild(ripple);
+
+          const rect = this.getBoundingClientRect();
+          ripple.style.left = (e.clientX - rect.left) + 'px';
+          ripple.style.top = (e.clientY - rect.top) + 'px';
+
+          ripple.addEventListener('animationend', () => {
+            ripple.remove();
+          });
+        });
+      });
   </script>
 </body>
 </html>
