@@ -192,7 +192,7 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%; /* horizontal navigation bar at top */
+    width: 30%; /* horizontal navigation bar at top */
     height: auto;
     flex-direction: row;
     align-items: center;
