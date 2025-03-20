@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "linear-gradient(to right, #0072ff, #00c6ff)";
   });
 
-  // Sidebar Navigation: Handle menu item clicks
+  // Navigation Menu: Handle menu item clicks
   document.querySelector(".menu").addEventListener("click", function (event) {
     if (event.target.classList.contains("menu-item")) {
       document
@@ -175,13 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (event.target === modal) {
       modal.style.display = "none";
     }
-  });
-
-  // Hamburger menu toggle for mobile
-  const hamburger = document.querySelector('.hamburger-menu');
-  const sidebar = document.querySelector('.sidebar');
-  hamburger.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
   });
 
   // Initialize Chart.js for the "Project Trends" chart with a given range
@@ -252,18 +245,19 @@ document.addEventListener("DOMContentLoaded", function () {
     sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
   }
 
-  // Auto slider: change slide every 1 second
+  // Auto slider: change slide every 2 seconds
   setInterval(() => {
     currentSlide = (currentSlide === totalSlides - 1) ? 0 : currentSlide + 1;
     updateSlider();
   }, 2000);
+  
   // Add interactivity to contact cards (optional)
-	document.querySelectorAll('.contact-card').forEach(card => {
-	  card.addEventListener('click', function () {
-		modalBody.innerHTML = `<h2>${card.querySelector('h3').textContent}</h2>
-								 <p>More details for ${card.querySelector('h3').textContent} can go here.</p>`;
-		modal.style.display = "block";
-	  });
-	});
+  document.querySelectorAll('.contact-card').forEach(card => {
+    card.addEventListener('click', function () {
+      modalBody.innerHTML = `<h2>${card.querySelector('h3').textContent}</h2>
+                 <p>More details for ${card.querySelector('h3').textContent} can go here.</p>`;
+      modal.style.display = "block";
+    });
+  });
 
 });
