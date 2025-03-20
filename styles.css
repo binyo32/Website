@@ -65,7 +65,7 @@ button:hover {
 
 /* Sidebar Styling */
 .sidebar {
-  width: 180px;  /* Reduced width for a smaller sidebar */
+  width: 220px;  /* Reduced width for a smaller sidebar */
   background: #0072ff;
   color: white;
   padding: 20px;
@@ -190,7 +190,7 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
+    width: 50%;
     height: auto;
     flex-direction: row;
     align-items: center;
