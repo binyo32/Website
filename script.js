@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function showDashboard(token) {
     sessionStorage.setItem("token", token);
     loadingContainer.style.display = "none";
+    loginContainer.style.display = "none"; // Explicitly hide login container
+    registerContainer.style.display = "none"; // Explicitly hide registration container
     dashboard.style.display = "flex";
     document.body.style.background = "#f4f4f4";
   }
