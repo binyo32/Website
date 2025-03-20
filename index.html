@@ -50,28 +50,20 @@
 
   <!-- Dashboard Section -->
   <div id="dashboard">
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar" role="navigation" aria-label="Main Navigation">
-      <header>
-        <h2>Linea Global Tech</h2>
-        <!-- Hamburger for mobile -->
-        <div class="hamburger-menu" aria-label="Toggle Navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </header>
+    <!-- Header Navigation -->
+    <header class="header" role="navigation" aria-label="Main Navigation">
+      <h2>Linea Global Tech</h2>
       <ul class="menu">
         <li><a href="#" data-section="overview" class="menu-item active">Dashboard</a></li>
         <li><a href="#" data-section="services" class="menu-item">Services</a></li>
         <li><a href="#" data-section="contact" class="menu-item">Contact</a></li>
       </ul>
       <button id="logout" class="logout-btn" aria-label="Logout">Logout</button>
-    </nav>
+    </header>
 
     <!-- Main Dashboard Content -->
     <main class="dashboard-content" role="main">
-      <!-- Overview Section with Interactive Cards and Always Visible Chart -->
+      <!-- Overview Section with Interactive Cards and Chart -->
       <section id="overview" class="content-section active-section" aria-labelledby="overview-heading">
         <h1 id="overview-heading">Welcome to Linea Global Tech Dashboard</h1>
         <p>Access our project insights, monitor client activity, and explore IT solutions.</p>
@@ -89,7 +81,7 @@
             <p>Fiber Optics, CCTV, IT Solutions</p>
           </div>
         </div>
-        <!-- Chart Controls and Container -->
+        <!-- Chart Controls restored to allow dynamic chart updates -->
         <div class="chart-controls">
           <label for="chartSelect">Select Data Range:</label>
           <select id="chartSelect">
@@ -104,66 +96,66 @@
       </section>
 
       <!-- Services Section -->
-	<section id="services" class="content-section" aria-labelledby="services-heading">
-	  <h1 id="services-heading">Our Services</h1>
-	  <div class="service-detail">
-		<h2>CCTV &amp; Security System Installation Progress</h2>
-		<p>
-		  Follow our step-by-step installation progress for top-notch CCTV and security systems.
-		  Our process covers everything from initial consultation to final testing, ensuring your
-		  security needs are met with excellence.
-		</p>
-		<div class="image-slider">
-		  <div class="slider-wrapper">
-			<img src="https://soundcctv.com/wp-content/uploads/2020/08/Jasa-pasang-cctv-murah-1.jpg" alt="CCTV installation process stage 1">
-			<img src="https://play-lh.googleusercontent.com/ps2VpYdZmWDKa1EWV6-QIP89DNLglt_QzGy17lRoxdvBDfc73fbZVflIRllbCTeDAjQ=w526-h296-rw" alt="CCTV installation process stage 2">
-			<img src="https://acoba.id/wp-content/uploads/2024/08/CCTV-Lalu-Lintas.png" alt="CCTV installation process stage 3">
-			<img src="https://asset-2.tstatic.net/bekasi/foto/bank/images/Ilustrasi-Kamera-CCTV.jpg" alt="CCTV installation process stage 4">
-		  </div>
-		</div>
-	  </div>
-	</section>
+      <section id="services" class="content-section" aria-labelledby="services-heading">
+        <h1 id="services-heading">Our Services</h1>
+        <div class="service-detail">
+          <h2>CCTV &amp; Security System Installation Progress</h2>
+          <p>
+            Follow our step-by-step installation progress for top-notch CCTV and security systems.
+            Our process covers everything from initial consultation to final testing, ensuring your
+            security needs are met with excellence.
+          </p>
+          <div class="image-slider">
+            <div class="slider-wrapper">
+              <img src="https://soundcctv.com/wp-content/uploads/2020/08/Jasa-pasang-cctv-murah-1.jpg" alt="CCTV installation process stage 1">
+              <img src="https://play-lh.googleusercontent.com/ps2VpYdZmWDKa1EWV6-QIP89DNLglt_QzGy17lRoxdvBDfc73fbZVflIRllbCTeDAjQ=w526-h296-rw" alt="CCTV installation process stage 2">
+              <img src="https://acoba.id/wp-content/uploads/2024/08/CCTV-Lalu-Lintas.png" alt="CCTV installation process stage 3">
+              <img src="https://asset-2.tstatic.net/bekasi/foto/bank/images/Ilustrasi-Kamera-CCTV.jpg" alt="CCTV installation process stage 4">
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Contact Section -->
-<section id="contact" class="content-section" aria-labelledby="contact-heading">
-  <h1 id="contact-heading">Contact Us</h1>
-  <p>Need assistance? Reach out to our dedicated team.</p>
-  
-  <div class="contact-cards-container">
-    <div class="contact-card">
-      <img src="https://scontent.fsrg6-1.fna.fbcdn.net/v/t1.6435-1/162035772_3757238694353402_3307029006452201660_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=NRlcyVw20CIQ7kNvgGsyuTR&_nc_oc=Admq0gbiO0m1V_anGU4CQaXM_QsIpxG-3lVE4_ygnjYQw8HNQnFp5tozvSOVdSkcMCLuSyQD_jPvK4t5awY_QURr&_nc_zt=24&_nc_ht=scontent.fsrg6-1.fna&_nc_gid=cMdgxt5aFdVIR67EKuo8gg&oh=00_AYFesK5h4jNJdeukztV2JQIpoVWDPDjTbVCNxdRkM03stA&oe=6803D0B2" alt="John Doe, CEO">
-      <h3>Bintang Aryo</h3>
-      <p>CEO</p>
-    </div>
-    <div class="contact-card">
-      <img src="https://scontent.fsrg6-1.fna.fbcdn.net/v/t39.30808-6/464599900_10227158500974436_6513540239848678511_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=b04a48&_nc_ohc=132NCHtcmFEQ7kNvgGqvUYf&_nc_oc=AdmMhE2Ga5O77TcDK_gz3724r4UNQGeq6fTcKfRK2g0xoy3Yu9hiCribDRwbHqrJH6yvXyrjw-FLKmTIMPSCOfKZ&_nc_zt=23&_nc_ht=scontent.fsrg6-1.fna&_nc_gid=X42YECAEnZshvd-9Uxt5Cw&oh=00_AYGlYJKR-PfdMjHAL_YCWhduAA1FqvrZvCJ9riNjt8Rpig&oe=67E23531" alt="Jane Smith, CFO">
-      <h3>Buana Eskha</h3>
-      <p>CFO</p>
-    </div>
-    <div class="contact-card">
-      <img src="https://media.licdn.com/dms/image/v2/C5603AQGLT_hLPWXP_A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517404927885?e=2147483647&v=beta&t=BUVehUt9U6M81Jq6WFy00rmQLBfwCkegXqI6MYpu1HQ" alt="Robert Johnson, CTO">
-      <h3>Charisma Eskha</h3>
-      <p>CTO</p>
-    </div>
-    <div class="contact-card">
-      <img src="https://scontent.fsrg6-1.fna.fbcdn.net/v/t39.30808-1/461073041_2166688320390917_3336229425775234682_n.jpg?stp=cp6_dst-jpg_s100x100_tt6&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_ohc=wAQA1r_iRFcQ7kNvgG7nVnb&_nc_oc=AdmbbVQAhMMBNh2oXkGNHUIIYLAnPNPQ57FJkm03eKxWQ5j3u7nAr6ZOgO__e-IylHF08akq07zNhe6JDfuB-jGF&_nc_zt=24&_nc_ht=scontent.fsrg6-1.fna&_nc_gid=UVi47NnDecnxPEEPHQXZGA&oh=00_AYE7fqXnFvMG8i8YJOMYtaaaUSBYliY0zeElRZXImE4bJw&oe=67E21E2B" alt="Emily Davis, COO">
-      <h3>Gita Septiana</h3>
-      <p>Administrator</p>
-    </div>
-    <div class="contact-card">
-      <img src="https://media.licdn.com/dms/image/v2/D5603AQHU3UVN6vf84w/profile-displayphoto-shrink_200_200/B56ZQmshpUGsAY-/0/1735815998004?e=2147483647&v=beta&t=YqLXGaSQcewu4yx_cjQs_Ew1DCof8U41CKLLUCpzzCY" alt="Michael Brown, CMO">
-      <h3>Iqbal Maulana</h3>
-      <p>Administrator</p>
-    </div>
-    <div class="contact-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/KPU_Agus_Raharjo.png" alt="Linda Wilson, HR Manager">
-      <h3>Agus Rando</h3>
-      <p>Kuli Bangunan</p>
-    </div>
+      <section id="contact" class="content-section" aria-labelledby="contact-heading">
+        <h1 id="contact-heading">Contact Us</h1>
+        <p>Need assistance? Reach out to our dedicated team.</p>
+        
+        <div class="contact-cards-container">
+          <div class="contact-card">
+            <img src="https://scontent.fsrg6-1.fna.fbcdn.net/v/t1.6435-1/162035772_3757238694353402_3307029006452201660_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e99d92&_nc_ohc=NRlcyVw20CIQ7kNvgGsyuTR&_nc_oc=Admq0gbiO0m1V_anGU4CQaXM_QsIpxG-3lVE4_ygnjYQw8HNQnFp5tozvSOVdSkcMCLuSyQD_jPvK4t5awY_QURr&_nc_zt=24&_nc_ht=scontent.fsrg6-1.fna&_nc_gid=cMdgxt5aFdVIR67EKuo8gg&oh=00_AYFesK5h4jNJdeukztV2JQIpoVWDPDjTbVCNxdRkM03stA&oe=6803D0B2" alt="John Doe, CEO">
+            <h3>Bintang Aryo</h3>
+            <p>CEO</p>
+          </div>
+          <div class="contact-card">
+            <img src="https://scontent.fsrg6-1.fna.fbcdn.net/v/t39.30808-6/464599900_10227158500974436_6513540239848678511_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=b04a48&_nc_ohc=132NCHtcmFEQ7kNvgGqvUYf&_nc_oc=AdmMhE2Ga5O77TcDK_gz3724r4UNQGeq6fTcKfRK2g0xoy3Yu9hiCribDRwbHqrJH6yvXyrjw-FLKmTIMPSCOfKZ&_nc_zt=23&_nc_ht=scontent.fsrg6-1.fna&_nc_gid=X42YECAEnZshvd-9Uxt5Cw&oh=00_AYGlYJKR-PfdMjHAL_YCWhduAA1FqvrZvCJ9riNjt8Rpig&oe=67E23531" alt="Jane Smith, CFO">
+            <h3>Buana Eskha</h3>
+            <p>CFO</p>
+          </div>
+          <div class="contact-card">
+            <img src="https://media.licdn.com/dms/image/v2/C5603AQGLT_hLPWXP_A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517404927885?e=2147483647&v=beta&t=BUVehUt9U6M81Jq6WFy00rmQLBfwCkegXqI6MYpu1HQ" alt="Robert Johnson, CTO">
+            <h3>Charisma Eskha</h3>
+            <p>CTO</p>
+          </div>
+          <div class="contact-card">
+            <img src="https://scontent.fsrg6-1.fna.fbcdn.net/v/t39.30808-1/461073041_2166688320390917_3336229425775234682_n.jpg?stp=cp6_dst-jpg_s100x100_tt6&_nc_cat=102&ccb=1-7&_nc_sid=e99d92&_nc_ohc=wAQA1r_iRFcQ7kNvgG7nVnb&_nc_oc=AdmbbVQAhMMBNh2oXkGNHUIIYLAnPNPQ57FJkm03eKxWQ5j3u7nAr6ZOgO__e-IylHF08akq07zNhe6JDfuB-jGF&_nc_zt=24&_nc_ht=scontent.fsrg6-1.fna&_nc_gid=UVi47NnDecnxPEEPHQXZGA&oh=00_AYE7fqXnFvMG8i8YJOMYtaaaUSBYliY0zeElRZXImE4bJw&oe=67E21E2B" alt="Emily Davis, COO">
+            <h3>Gita Septiana</h3>
+            <p>Administrator</p>
+          </div>
+          <div class="contact-card">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQHU3UVN6vf84w/profile-displayphoto-shrink_200_200/B56ZQmshpUGsAY-/0/1735815998004?e=2147483647&v=beta&t=YqLXGaSQcewu4yx_cjQs_Ew1DCof8U41CKLLUCpzzCY" alt="Michael Brown, CMO">
+            <h3>Iqbal Maulana</h3>
+            <p>Administrator</p>
+          </div>
+          <div class="contact-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/KPU_Agus_Raharjo.png" alt="Linda Wilson, HR Manager">
+            <h3>Agus Rando</h3>
+            <p>Kuli Bangunan</p>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
-</section>
-
-
 
   <!-- Modal for Detailed Card Information -->
   <div id="modal" class="modal">
