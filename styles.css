@@ -65,7 +65,7 @@ button:hover {
 
 /* Sidebar Styling */
 .sidebar {
-  width: 250px;
+  width: 200px;  /* Reduced width for a smaller sidebar */
   background: #0072ff;
   color: white;
   padding: 20px;
@@ -195,9 +195,11 @@ button:hover {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    padding: 10px;  /* Reduced padding for mobile */
   }
   .sidebar header h2 {
     margin-bottom: 0;
+    font-size: 1rem;
   }
   .menu {
     display: flex;
