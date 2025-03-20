@@ -85,57 +85,38 @@ button:hover {
   display: none;
   height: 100vh;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
 }
 
-/* Sidebar Styling */
-.sidebar {
-  width: 220px;
+/* Header Navigation Styling - Fixed at top */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: var(--primary-color);
   color: #fff;
   padding: 20px;
   display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
-}
-
-.sidebar.active {
-  transform: translateX(-100%);
-}
-
-.sidebar header {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
-.sidebar header h2 {
-  margin-bottom: 20px;
-}
-
-/* Hamburger Menu Styles */
-.hamburger-menu {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.hamburger-menu span {
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  margin: 3px 0;
+.header h2 {
+  margin: 0;
 }
 
 /* Navigation Menu */
 .menu {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .menu li {
-  margin-bottom: 5px;
+  margin-right: 15px;
 }
 
 .menu a {
@@ -147,14 +128,17 @@ button:hover {
 }
 
 .menu a:hover,
-.active {
+.menu .active {
   background: var(--dark-color);
 }
 
-/* Logout Button Styling */
+/* Logout Button Styling - Made Smaller */
 .logout-btn {
-  margin-top: auto;
   background: #ff4d4d;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 .logout-btn:hover {
@@ -166,6 +150,7 @@ button:hover {
   flex-grow: 1;
   padding: 20px;
   background: var(--light-bg);
+  margin-top: 80px; /* Added to prevent content being hidden behind fixed header */
 }
 
 /* Content Sections */
@@ -225,8 +210,7 @@ button:hover {
   position: relative;
   overflow: hidden;
   margin: 20px auto;
-  width: 60%; /* Makes the slider fit to screen width */
-  /* Optionally, remove or adjust max-width if needed */
+  width: 60%;
 }
 
 .slider-wrapper {
@@ -243,8 +227,7 @@ button:hover {
 /* Chart Container Styling */
 .chart-container {
   width: 100%;
-  max-width: 200%;
-  height: 70vh; /* Adjusts to 70% of the viewport height */
+  height: 10vh;
   margin-top: 20px;
 }
 
@@ -310,27 +293,16 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  .hamburger-menu {
-    display: flex;
-  }
-  .sidebar header h2 {
-    font-size: 1rem;
-    margin-bottom: 0;
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
   }
   .menu {
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
   }
   .menu li {
-    margin: 0 5px;
+    margin: 5px 0;
   }
   .dashboard-content {
     padding: 10px;
@@ -384,54 +356,36 @@ button:hover {
 
 /* Additional Mobile Responsiveness */
 @media (max-width: 480px) {
-  /* Dashboard adjustments */
   #dashboard {
     flex-direction: column;
   }
-  
-  .sidebar {
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  .header {
     padding: 10px;
   }
-  
   .menu {
     flex-direction: column;
-    align-items: center;
     width: 100%;
   }
-  
   .menu li {
     margin: 5px 0;
   }
-  
   .dashboard-content {
     padding: 10px;
   }
-  
-  /* Services Section adjustments */
   #services {
     padding: 10px;
   }
-  
   .image-slider {
     width: 100%;
   }
-  
-  /* Contact Section adjustments */
   .contact-cards-container {
     flex-direction: column;
     align-items: center;
   }
-  
   .contact-card {
     width: 90%;
     margin: 10px 0;
   }
-  
-  /* Modal adjustments */
   .modal-content {
     width: 95%;
     max-width: none;
