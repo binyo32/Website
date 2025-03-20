@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const logoutButton = document.getElementById("logout");
   const showRegister = document.getElementById("show-register");
   const showLogin = document.getElementById("show-login");
+  const hamburger = document.querySelector('.hamburger-menu');
+  const sidebar = document.querySelector('.sidebar');
 
   // Simulated user data (ideally fetched from an API)
   let users = [
@@ -18,16 +20,20 @@ document.addEventListener("DOMContentLoaded", function () {
       token: "sampleToken123"
     }
   ];
+  
+  hamburger.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+  });
 
   // Display the dashboard after loading animation
   function showDashboard(token) {
-    sessionStorage.setItem("token", token);
-    loadingContainer.style.display = "none";
-    loginContainer.style.display = "none"; // Explicitly hide login container
-    registerContainer.style.display = "none"; // Explicitly hide registration container
-    dashboard.style.display = "flex";
-    document.body.style.background = "#f4f4f4";
-  }
+  sessionStorage.setItem("token", token);
+  loadingContainer.style.display = "none";
+  loginContainer.style.display = "none"; // Explicitly hide login container
+  registerContainer.style.display = "none"; // Explicitly hide registration container
+  dashboard.style.display = "flex";
+  document.body.style.background = "#f4f4f4";
+}
 
   // Simulate loading animation with random progress updates
   function simulateLoading(token) {
