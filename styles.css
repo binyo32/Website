@@ -65,7 +65,7 @@ button:hover {
 
 /* Sidebar Styling */
 .sidebar {
-  width: 200px;  /* Reduced width for a smaller sidebar */
+  width: 100px;  /* Reduced width for a smaller sidebar */
   background: #0072ff;
   color: white;
   padding: 20px;
