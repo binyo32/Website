@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linea Global Tech</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Login Form Section -->
+  <section class="container" id="login-container" aria-label="Login Form">
+    <h2>Login to Linea Global Tech</h2>
+    <form id="loginForm">
+      <label for="login-username">Username</label>
+      <input type="text" id="login-username" placeholder="Username" aria-required="true" required />
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" placeholder="Password" aria-required="true" required />
+      <button type="submit">Login</button>
+      <p id="error-message" role="alert"></p>
+    </form>
+    <p>Don't have an account? <a href="#" id="show-register">Register here</a></p>
+  </section>
+
+  <!-- Registration Form Section -->
+  <section class="container" id="register-container" aria-label="Registration Form" style="display: none;">
+    <h2>Register with Linea Global Tech</h2>
+    <form id="registerForm">
+      <label for="register-username">Username</label>
+      <input type="text" id="register-username" placeholder="Username" aria-required="true" required />
+      <label for="register-password">Password</label>
+      <input type="password" id="register-password" placeholder="Password" aria-required="true" required />
+      <label for="register-confirm-password">Confirm Password</label>
+      <input type="password" id="register-confirm-password" placeholder="Confirm Password" aria-required="true" required />
+      <button type="submit">Register</button>
+      <p id="register-error-message" role="alert"></p>
+    </form>
+    <p>Already have an account? <a href="#" id="show-login">Login here</a></p>
+  </section>
+
+  <!-- Loading Animation Section -->
+  <section class="container" id="loading-container" aria-label="Loading Screen" style="display: none;">
+    <h2>Validating Data...</h2>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+    </div>
+    <p id="progress-percentage">0%</p>
+  </section>
+
+  <!-- Dashboard Section -->
+  <div id="dashboard">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" role="navigation" aria-label="Main Navigation">
+      <header>
+        <h2>Linea Global Tech</h2>
+      </header>
+      <ul class="menu">
+        <li><a href="#" data-section="overview" class="menu-item active">Dashboard</a></li>
+        <li><a href="#" data-section="services" class="menu-item">Services</a></li>
+        <li><a href="#" data-section="contact" class="menu-item">Contact</a></li>
+      </ul>
+      <button id="logout" class="logout-btn" aria-label="Logout">Logout</button>
+    </nav>
+
+    <!-- Main Dashboard Content -->
+    <main class="dashboard-content" role="main">
+      <!-- Overview Section with Interactive Cards -->
+      <section id="overview" class="content-section active-section" aria-labelledby="overview-heading">
+        <h1 id="overview-heading">Welcome to Your Dashboard</h1>
+        <p>Overview of Linea Global Tech</p>
+        <div class="cards-container">
+          <div class="card">
+            <h3>Projects Completed</h3>
+            <p>120+</p>
+          </div>
+          <div class="card">
+            <h3>Active Clients</h3>
+            <p>45+</p>
+          </div>
+          <div class="card">
+            <h3>Services Offered</h3>
+            <p>Fiber Optics, CCTV, IT Solutions</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="content-section" aria-labelledby="services-heading">
+        <h1 id="services-heading">Our Services</h1>
+        <ul>
+          <li>Fiber Optic Installation</li>
+          <li>CCTV &amp; Security Systems</li>
+          <li>IT Infrastructure</li>
+          <li>Network Maintenance &amp; Support</li>
+        </ul>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="content-section" aria-labelledby="contact-heading">
+        <h1 id="contact-heading">Contact Us</h1>
+        <address>
+          <p>Location: New York, USA</p>
+          <p>Phone: <a href="tel:+1234567890">+123 456 7890</a></p>
+          <p>Email: <a href="mailto:info@lineaglobaltech.com">info@lineaglobaltech.com</a></p>
+        </address>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
