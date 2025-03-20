@@ -162,11 +162,10 @@ button:hover {
 
 /* Logout Button Styling */
   .logout-btn {
-    padding: 6px;
-    font-size: 0.8rem;
-    margin-left: 5px;
-  }
+  margin-top: auto;
+  background: #ff4d4d;
 }
+
 
 .logout-btn:hover {
   background: #d93636;
