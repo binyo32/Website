@@ -161,9 +161,11 @@ button:hover {
 }
 
 /* Logout Button Styling */
-.logout-btn {
-  margin-top: auto;
-  background: #ff4d4d;
+  .logout-btn {
+    padding: 6px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+  }
 }
 
 .logout-btn:hover {
@@ -190,23 +192,31 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
+    width: 100%; /* horizontal navigation bar at top */
     height: auto;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    padding: 10px;  /* Reduced padding for mobile */
+    padding: 5px 10px; /* smaller padding */
   }
   .sidebar header h2 {
-    margin-bottom: 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin: 0;
   }
+
   .menu {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
   }
+
   .menu li {
-    margin: 0 5px;
+    margin: 2px;
+  }
+
+  .menu a {
+    padding: 6px 8px;
+    font-size: 0.8rem; /* smaller font size */
   }
   .dashboard-content {
     padding: 10px;
