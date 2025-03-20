@@ -19,11 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
       token: "sampleToken123"
     }
   ];
-  const hamburger = document.querySelector('.hamburger-menu');
-  const sidebar = document.querySelector('.sidebar');
-  hamburger.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
-  });
 
   // Display the dashboard after loading animation
   function showDashboard(token) {
