@@ -193,8 +193,30 @@ button:hover {
     width: 100%;
     height: auto;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .sidebar header h2 {
+    margin-bottom: 0;
+  }
+  .menu {
+    display: flex;
+    flex-direction: row;
+  }
+  .menu li {
+    margin: 0 5px;
   }
   .dashboard-content {
     padding: 10px;
+  }
+  .container {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
   }
 }
