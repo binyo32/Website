@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const logoutButton = document.getElementById("logout");
   const showRegister = document.getElementById("show-register");
   const showLogin = document.getElementById("show-login");
-  const hamburger = document.querySelector('.hamburger-menu');
-  const sidebar = document.querySelector('.sidebar');
+  
 
   // Simulated user data (ideally fetched from an API)
   let users = [
@@ -20,7 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
       token: "sampleToken123"
     }
   ];
-  
+  const hamburger = document.querySelector('.hamburger-menu');
+  const sidebar = document.querySelector('.sidebar');
   hamburger.addEventListener('click', () => {
   sidebar.classList.toggle('active');
   });
