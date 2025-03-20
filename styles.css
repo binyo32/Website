@@ -65,17 +65,38 @@ button:hover {
 
 /* Sidebar Styling */
 .sidebar {
-  width: 220px;  /* Reduced width for a smaller sidebar */
-  background: #0072ff;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+  position: fixed;
+  left: -200px; /* hide initially off-screen */
+  top: 0;
+  height: 100%;
+  width: 200px;
+  transition: left 0.3s ease-in-out;
+}
+
+.sidebar.active {
+  left: 0; /* slide into view when active */
 }
 
 .sidebar header h2 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.hamburger-menu {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.hamburger-menu div {
+  height: 4px;
+  background: #0072ff;
+  margin: 4px 0;
+  border-radius: 2px;
 }
 
 .menu {
@@ -190,7 +211,7 @@ button:hover {
 /* Responsive Design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 50%;
+    width: 100%;
     height: auto;
     flex-direction: row;
     align-items: center;
