@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const logoutButton = document.getElementById("logout");
   const showRegister = document.getElementById("show-register");
   const showLogin = document.getElementById("show-login");
-  
 
   // Simulated user data (ideally fetched from an API)
   let users = [
