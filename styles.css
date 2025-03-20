@@ -65,7 +65,7 @@ button:hover {
 
 /* Sidebar Styling */
 .sidebar {
-  width: 100px;  /* Reduced width for a smaller sidebar */
+  width: 230px;  /* Reduced width for a smaller sidebar */
   background: #0072ff;
   color: white;
   padding: 20px;
@@ -191,14 +191,14 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .sidebar {
-    width: 30%; /* horizontal navigation bar at top */
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding: 5px 10px; /* smaller padding */
-  }
+.sidebar {
+  width: 100px;  /* Reduced width for a smaller sidebar */
+  background: #0072ff;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
   .sidebar header h2 {
     font-size: 0.9rem;
     margin: 0;
