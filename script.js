@@ -260,20 +260,8 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.style.display = "block";
     });
   });
+  document.querySelector('.header').addEventListener('click', () => {
+  document.querySelector('.header').classList.toggle('hidden');
+});
   
-  // --- New: Hide header on scroll ---
-  let lastScrollPosition = 0;
-  window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    const currentScroll = window.scrollY;
-    
-    // Hide header when scrolling down, show when scrolling up
-    if (currentScroll > lastScrollPosition) {
-      header.classList.add('hidden');
-    } else {
-      header.classList.remove('hidden');
-    }
-    
-    lastScrollPosition = currentScroll;
-  });
 });
