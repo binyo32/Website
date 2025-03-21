@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Simulated user data (ideally fetched from an API)
   let users = [
     {
-      username: "testuser",
-      password: "SecurePassword123",
+      username: "a",
+      password: "a",
       token: "sampleToken123"
     }
   ];
@@ -235,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (sessionStorage.getItem("token")) {
     showDashboard(sessionStorage.getItem("token"));
   }
+  
   // Slider initialization code
   const sliderWrapper = document.querySelector('.slider-wrapper');
   const slides = document.querySelectorAll('.slider-wrapper img');
@@ -259,5 +260,20 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.style.display = "block";
     });
   });
-
+  
+  // --- New: Hide header on scroll ---
+  let lastScrollPosition = 0;
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    const currentScroll = window.scrollY;
+    
+    // Hide header when scrolling down, show when scrolling up
+    if (currentScroll > lastScrollPosition) {
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('hidden');
+    }
+    
+    lastScrollPosition = currentScroll;
+  });
 });
