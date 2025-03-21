@@ -256,7 +256,7 @@ button:hover {
 /* Mobile */
 @media (max-width: 600px) {
   .chart-container {
-    height: 50vh; /* or adjust according to your preference */
+    height: 90vh; /* or adjust according to your preference */
   }
 /* Modal Styles */
 .modal {
