@@ -145,7 +145,8 @@ button:hover {
 .logout-btn {
   background: #ff4d4d;
   font-size: 0.8rem;
-  padding: 5px 10px;
+  width: auto; /* Adjust to desired width, e.g., auto or specific px/% */
+  padding: 5px 10px; /* Already defined, you can adjust if needed */
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -252,7 +253,11 @@ button:hover {
   height: 10vh;
   margin-top: 20px;
 }
-
+/* Mobile */
+@media (max-width: 600px) {
+  .chart-container {
+    height: 50vh; /* or adjust according to your preference */
+  }
 /* Modal Styles */
 .modal {
   display: none;
