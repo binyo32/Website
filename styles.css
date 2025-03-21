@@ -101,6 +101,12 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* When the header has the 'hidden' class, move it out of view */
+.header.hidden {
+  transform: translateY(-100%);
 }
 
 .header h2 {
@@ -125,9 +131,12 @@ button:hover {
   padding: 10px;
   display: block;
   border-radius: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.menu a:hover,
+.menu a:hover {
+  transform: scale(1.05);
+}
 .menu .active {
   background: var(--dark-color);
 }
@@ -139,10 +148,23 @@ button:hover {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logout-btn:hover {
-  background: #d93636;
+  background-color: #d93636;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+}
+
+.logout-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.5);
 }
 
 /* Dashboard Content Styling */
