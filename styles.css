@@ -137,10 +137,28 @@ button:hover {
 .menu a:hover {
   transform: scale(1.05);
 }
-.menu .active {
-  background: var(--dark-color);
-}
+.menu.active {
+    display: flex;
+  }
+ /* Style the toggle button */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 15px;
+  }
 
+/* Hide the menu by default on small screens */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: var(--primary-color);
+    padding: 10px 0;
+  }
 /* Logout Button Styling - Made Smaller */
 .logout-btn {
   background: #ff4d4d;
