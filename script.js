@@ -261,9 +261,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   // Toggle header visibility by clicking on the first element (h2)
-document.querySelector('.header h2').addEventListener('click', (event) => {
-  event.stopPropagation(); // Prevent any unwanted event bubbling
-  document.querySelector('.header').classList.toggle('hidden');
+document.getElementById('menu-toggle').addEventListener('click', (event) => {
+  event.stopPropagation();
+  document.querySelector('.menu').classList.toggle('active');
 });
   
 });
