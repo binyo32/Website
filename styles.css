@@ -311,7 +311,7 @@ button:hover {
 /* Mobile */
 @media (max-width: 600px) {
   .chart-container {
-    height: 90vh; /* or adjust according to your preference */
+    height: 20vh; /* or adjust according to your preference */
   }
 /* Modal Styles */
 .modal {
