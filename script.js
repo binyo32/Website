@@ -279,4 +279,50 @@ document.addEventListener('click', (event) => {
     toggleButton.classList.remove('active');
   }
 });
+  // Define summary texts for each range
+const summaries = {
+  weekly: `
+    <h3>Weekly Overview</h3>
+    <p>
+      The weekly chart shows dynamic daily fluctuations in completed projects.
+      It starts with 5 projects on Monday, rises to 10 on Tuesday, dips slightly to 8 on Wednesday,
+      then increases to 12 on Thursday and peaks at 15 on Friday. Over the weekend, it drops to 7 on Saturday
+      and slightly recovers to 9 on Sunday.
+    </p>
+  `,
+  monthly: `
+    <h3>Monthly Overview</h3>
+    <p>
+      Aggregated into four weeks, the data shows steady growth. Week 1 starts at 10 projects,
+      Week 2 rises to 20, Week 3 peaks at 30, and Week 4 sees a slight decline to 25 projects.
+    </p>
+  `,
+  yearly: `
+    <h3>Yearly Overview</h3>
+    <p>
+      The yearly data presents variable trends. Starting at 12 in January, it increases to 15 in February,
+      drops to 10 in March, surges to 18 in April, and continues fluctuating throughout the year.
+      Notable increases are seen in April and October, with November peaking at 40 before a minor dip in December.
+    </p>
+  `
+};
+
+// Function to update the summary text based on selected range
+function updateSummary(range) {
+  const summaryContainer = document.getElementById('chartSummary');
+  summaryContainer.innerHTML = summaries[range] || '';
+}
+
+// Update summary whenever the dropdown changes
+chartSelect.addEventListener('change', function() {
+  const range = this.value;
+  window.projectsChart.data.labels = getLabelsForRange(range);
+  window.projectsChart.data.datasets[0].data = getDataForRange(range);
+  window.projectsChart.update();
+  updateSummary(range);
+});
+
+// Set initial summary (assumes default is monthly)
+updateSummary('monthly');
+
 });
