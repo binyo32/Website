@@ -148,17 +148,54 @@ button:hover {
     font-size: 1.5rem;
     cursor: pointer;
     margin-left: 15px;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease-in-out;
   }
 
 /* Hide the menu by default on small screens */
 @media (max-width: 768px) {
   .menu {
-    display: none;
+    position: absolute;
+    top: 60px; /* adjust based on your header height */
+    left: 0;
+    right: 0;
     flex-direction: column;
-    width: 100%;
     background: var(--primary-color);
     padding: 10px 0;
+    /* Start off hidden with a slight upward offset */
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
+  .menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Animate individual menu items with a slide-in effect */
+  .menu li {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  .menu.active li {
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideIn 0.3s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
 /* Logout Button Styling - Made Smaller */
 .logout-btn {
   background: #ff4d4d;
