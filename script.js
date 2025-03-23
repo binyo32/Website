@@ -263,7 +263,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Toggle header visibility by clicking on the first element (h2)
 document.getElementById('menu-toggle').addEventListener('click', (event) => {
   event.stopPropagation();
-  document.querySelector('.menu').classList.toggle('active');
+  const menu = document.querySelector('.menu');
+  const toggleButton = event.target;
+  menu.classList.toggle('active');
+  toggleButton.classList.toggle('active');
 });
-  
+  // Close the menu if a click is detected outside of it
+document.addEventListener('click', (event) => {
+  const menu = document.querySelector('.menu');
+  const toggleButton = document.getElementById('menu-toggle');
+  if (menu.classList.contains('active') && 
+      !menu.contains(event.target) && 
+      event.target !== toggleButton) {
+    menu.classList.remove('active');
+    toggleButton.classList.remove('active');
+  }
+});
 });
