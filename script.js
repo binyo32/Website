@@ -279,15 +279,15 @@ document.addEventListener('click', (event) => {
     toggleButton.classList.remove('active');
   }
 });
-  // Define summary texts for each range
+// Define summary texts for each range
 const summaries = {
   weekly: `
     <h3>Weekly Overview</h3>
     <p>
       The weekly chart shows dynamic daily fluctuations in completed projects.
-      It starts with 5 projects on Monday, rises to 10 on Tuesday, dips slightly to 8 on Wednesday,
-      then increases to 12 on Thursday and peaks at 15 on Friday. Over the weekend, it drops to 7 on Saturday
-      and slightly recovers to 9 on Sunday.
+      It starts with 5 projects on Monday, rises to 10 on Tuesday, dips to 8 on Wednesday,
+      increases to 12 on Thursday, and peaks at 15 on Friday.
+      Over the weekend, it drops to 7 on Saturday and slightly recovers to 9 on Sunday.
     </p>
   `,
   monthly: `
@@ -301,8 +301,8 @@ const summaries = {
     <h3>Yearly Overview</h3>
     <p>
       The yearly data presents variable trends. Starting at 12 in January, it increases to 15 in February,
-      drops to 10 in March, surges to 18 in April, and continues fluctuating throughout the year.
-      Notable increases are seen in April and October, with November peaking at 40 before a minor dip in December.
+      drops to 10 in March, surges to 18 in April, and fluctuates throughout the year.
+      Notable increases occur in April and October, with November peaking at 40 before a minor dip in December.
     </p>
   `
 };
