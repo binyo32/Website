@@ -1,475 +1,607 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Dashboard Login Modern</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.css">
-    <!-- Tidak perlu memuat Chart.js karena grafik akan digantikan oleh React component -->
-    <style>
-      :root {
-        --bg: linear-gradient(120deg, #6a11cb, #2575fc);
-        --text: #fff;
-        --box: rgba(255,255,255,0.2);
-        --input: rgba(255,255,255,0.3);
-      }
-      body.dark {
-        --bg: linear-gradient(120deg, #1f1f1f, #2c3e50);
-        --text: #eee;
-        --box: rgba(0, 0, 0, 0.4);
-        --input: rgba(0,0,0,0.3);
-      }
-      body {
-        margin: 0; padding: 0;
-        display: flex; justify-content: center; align-items: flex-start;
-        min-height: 100vh;
-        background: var(--bg);
-        font-family: 'Poppins', sans-serif;
-        color: var(--text);
-        overflow: auto;
-      }
-      nav {
-        position: fixed; top: 0; left: 0; right: 0;
-        background: rgba(0,0,0,0.3);
-        display: flex; justify-content: space-between;
-        padding: 10px 20px; z-index: 100;
-        color: var(--text);
-      }
-      .nav-button {
-        background: rgba(255,255,255,0.2);
-        padding: 5px 10px; border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      .nav-button:hover {
-        background: rgba(255,255,255,0.4);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      }
-      .notification {
-        position: fixed; top: 60px; right: 20px;
-        background: #fff; color: #333;
-        padding: 10px 20px;
-        border-radius: 10px; display: none;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      }
-      .login-container {
-        background: var(--box);
-        margin-top: 100px;
-        padding: 40px; width: 320px;
-        border-radius: 20px; text-align: center;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.37);
-        opacity: 1;
-      }
-      .input-group { margin-bottom: 20px; }
-      .input-group input {
-        width: 100%; padding: 12px;
-        border: none; border-radius: 20px;
-        background: var(--input); color: var(--text);
-        transition: box-shadow 0.3s;
-      }
-      .input-group input:focus {
-        box-shadow: 0 0 8px rgba(255,255,255,0.6);
-        outline: none;
-      }
-      .btn-login {
-        width: 100%; padding: 12px;
-        border: none; border-radius: 20px;
-        background: #fff; color: #6a11cb;
-        font-weight: 600; cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      .btn-login:hover {
-        background: #eaeaea;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      }
-      .dashboard-container {
-        display: none;
-        max-width: 900px;
-        width: 100%; padding: 20px;
-        margin-top: 80px;
-        opacity: 1;
-      }
-      .dashboard-box {
-        background: var(--box);
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Login Modern</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --bg: linear-gradient(120deg, #6a11cb, #2575fc);
+      --text: #fff;
+      --box: rgba(255,255,255,0.2);
+      --input: rgba(255,255,255,0.3);
+    }
+    body.dark {
+      --bg: linear-gradient(120deg, #1f1f1f, #2c3e50);
+      --text: #eee;
+      --box: rgba(0, 0, 0, 0.4);
+      --input: rgba(0,0,0,0.3);
+    }
+    body {
+      margin: 0; padding: 0;
+      display: flex; justify-content: center; align-items: flex-start;
+      min-height: 100vh;
+      background: var(--bg);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      overflow: auto;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.3);
+      display: flex; justify-content: space-between;
+      padding: 10px 20px; z-index: 100;
+      color: var(--text);
+    }
+    .nav-button {
+      background: rgba(255,255,255,0.2);
+      padding: 5px 10px; border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .nav-button:hover {
+      background: rgba(255,255,255,0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .notification {
+      position: fixed; top: 60px; right: 20px;
+      background: #fff; color: #333;
+      padding: 10px 20px;
+      border-radius: 10px; display: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .login-container {
+      background: var(--box);
+      margin-top: 100px;
+      padding: 40px; width: 320px;
+      border-radius: 20px; text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+      opacity: 1;
+    }
+    .input-group { margin-bottom: 20px; }
+    .input-group input {
+      width: 100%; padding: 12px;
+      border: none; border-radius: 20px;
+      background: var(--input); color: var(--text);
+      transition: box-shadow 0.3s;
+    }
+    .input-group input:focus {
+      box-shadow: 0 0 8px rgba(255,255,255,0.6);
+      outline: none;
+    }
+    .btn-login {
+      width: 100%; padding: 12px;
+      border: none; border-radius: 20px;
+      background: #fff; color: #6a11cb;
+      font-weight: 600; cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-login:hover {
+      background: #eaeaea;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .dashboard-container {
+      display: none;
+      max-width: 900px;
+      width: 100%; padding: 20px;
+      margin-top: 80px;
+      opacity: 1;
+    }
+    .dashboard-box {
+      background: var(--box);
+      padding: 20px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .dashboard-item {
+      background: rgba(255,255,255,0.3);
+      padding: 10px;
+      border-radius: 12px;
+      text-align: center;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .dashboard-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+    .user-item {
+      display: flex; justify-content: space-between;
+      align-items: center; margin: 5px 0;
+      padding: 5px 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 8px;
+    }
+    .user-item button {
+      margin-left: 5px;
+      background: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 2px 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .user-item button:hover {
+      background: #eee;
+    }
+    #searchInput {
+      width: 100%; padding: 10px; margin: 10px 0;
+      border-radius: 10px; border: none;
+      background: var(--input); color: var(--text);
+    }
+    canvas {
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      .login-container, .dashboard-container {
         padding: 20px;
-        border-radius: 20px;
-        margin-top: 20px;
-      }
-      .dashboard-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 15px;
-        margin-top: 15px;
       }
       .dashboard-item {
-        background: rgba(255,255,255,0.3);
-        padding: 10px;
-        border-radius: 12px;
-        text-align: center;
-        color: #000;
-        cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        font-size: 14px;
       }
-      .dashboard-item:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      }
-      .user-item {
-        display: flex; justify-content: space-between;
-        align-items: center; margin: 5px 0;
-        padding: 5px 10px;
-        background: rgba(255,255,255,0.2);
-        border-radius: 8px;
-      }
-      .user-item button {
-        margin-left: 5px;
-        background: #fff;
-        border: none;
-        border-radius: 6px;
-        padding: 2px 6px;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-      .user-item button:hover {
-        background: #eee;
-      }
-      #searchInput {
-        width: 100%; padding: 10px; margin: 10px 0;
-        border-radius: 10px; border: none;
-        background: var(--input); color: var(--text);
-      }
-      /* Container untuk React component */
-      #speedChart {
-        margin-top: 20px;
-      }
-      @media (max-width: 600px) {
-        .login-container, .dashboard-container {
-          padding: 20px;
-        }
-        .dashboard-item {
-          font-size: 14px;
-        }
-      }
-      .fade-in {
-        animation: fadeIn 0.5s forwards;
-      }
-      .fade-out {
-        animation: fadeOut 0.5s forwards;
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-      }
-      .chart-options {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 10px;
-      }
-      .chart-option {
-        padding: 8px 16px;
-        background: rgba(255,255,255,0.2);
-        border: none;
-        border-radius: 8px;
-        color: var(--text);
-        cursor: pointer;
-        transition: background 0.3s ease, transform 0.3s ease;
-      }
-      .chart-option:hover {
-        background: rgba(255,255,255,0.4);
-      }
-      .chart-option.active {
-        background: rgba(255,255,255,0.8);
-        color: #000;
-        transform: scale(1.05);
-      }
-      /* Modal Styles */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 200;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-        animation: fadeInModal 0.5s;
-      }
-      .modal-content {
-        background: var(--box);
-        margin: 10% auto;
-        padding: 20px;
-        border-radius: 10px;
-        width: 80%;
-        max-width: 400px;
-        text-align: center;
-        animation: slideIn 0.5s;
-      }
-      .modal-content .close {
-        float: right;
-        font-size: 24px;
-        cursor: pointer;
-      }
-      .btn-submit {
-        padding: 10px 20px;
-        background: #fff;
-        color: #6a11cb;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-      }
-      .btn-submit:hover {
-        transform: scale(1.05);
-      }
-      @keyframes fadeInModal {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      @keyframes slideIn {
-        from { transform: translateY(-50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="notification" id="notification"></div>
+    }
+    .fade-in {
+      animation: fadeIn 0.5s forwards;
+    }
+    .fade-out {
+      animation: fadeOut 0.5s forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+    .chart-options {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .chart-option {
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 8px;
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    
+    .chart-option:hover {
+      background: rgba(255,255,255,0.4);
+    }
+    
+    .chart-option.active {
+      background: rgba(255,255,255,0.8);
+      color: #000;
+      transform: scale(1.05);
+    }
+        /* Modal Background */
+    .modal {
+      display: none; /* Tersembunyi secara default */
+      position: fixed;
+      z-index: 200;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5); /* Latar gelap dengan opacity */
+      animation: fadeInModal 0.5s;
+    }
+    
+    /* Konten Modal */
+    .modal-content {
+      background: var(--box);
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      animation: slideIn 0.5s;
+    }
+    
+    /* Tombol Close */
+    .modal-content .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    /* Tombol Submit */
+    .btn-submit {
+      padding: 10px 20px;
+      background: #fff;
+      color: #6a11cb;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-submit:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Animasi */
+    @keyframes fadeInModal {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-    <nav id="navbar" style="display: none;">
-      <div>Dashboard</div>
-      <div>
-        <span class="nav-button" onclick="toggleTheme()">☀</span>
-        <span class="nav-button" onclick="logout()">Logout</span>
-      </div>
-    </nav>
 
-    <div class="login-container" id="loginContainer">
-      <h2 id="form-title">Silahkan Login</h2>
-      <div class="input-group">
-        <input type="text" id="username" placeholder="Username" />
-      </div>
-      <div class="input-group">
-        <input type="password" id="password" placeholder="Password" />
-      </div>
-      <button class="btn-login" onclick="handleForm()" id="submit-btn">Login</button>
-      <div class="register-link" onclick="toggleForm()">Belum punya akun? <span style="color:#fff;">Daftar sekarang</span></div>
+  </style>
+</head>
+<body>
+  <div class="notification" id="notification"></div>
+
+  <nav id="navbar" style="display: none;">
+    <div>Dashboard</div>
+    <div>
+      <span class="nav-button" onclick="toggleTheme()">☀</span>
+      <span class="nav-button" onclick="logout()">Logout</span>
     </div>
+  </nav>
 
-    <div class="dashboard-container" id="dashboardContainer">
-      <h2>Selamat Datang di Dashboard</h2>
+  <div class="login-container" id="loginContainer">
+    <h2 id="form-title">Silahkan Login</h2>
+    <div class="input-group">
+      <input type="text" id="username" placeholder="Username" />
+    </div>
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Password" />
+    </div>
+    <button class="btn-login" onclick="handleForm()" id="submit-btn">Login</button>
+    <div class="register-link" onclick="toggleForm()">Belum punya akun? <span style="color:#fff;">Daftar sekarang !</span></div>
+  </div>
 
-      <div class="dashboard-box">
-        <h3>Panel Admin</h3>
-        <div class="dashboard-grid">
-          <div class="dashboard-item" onclick="tambahUser()">Tambah User</div>
-          <div id="modalTambahUser" class="modal">
-            <div class="modal-content">
-              <span class="close" onclick="closeModalTambahUser()">&times;</span>
-              <h2>Tambah User Baru</h2>
-              <div class="input-group">
-                <input type="text" id="newUsername" placeholder="Username baru" />
-              </div>
-              <div class="input-group">
-                <input type="password" id="newPassword" placeholder="Password baru" />
-              </div>
-              <button class="btn-submit" onclick="submitTambahUser()">Tambah User</button>
-            </div>
-          </div>
-          <div class="dashboard-item" onclick="showNotification('Kelola Konten dibuka')">Kelola Konten</div>
-          <div class="dashboard-item" onclick="showNotification('Pengaturan dibuka')">Pengaturan</div>
-          <div class="dashboard-item" onclick="showNotification('Laporan dibuka')">Laporan</div>
+  <div class="dashboard-container" id="dashboardContainer">
+    <h2>Selamat Datang di Dashboard</h2>
+
+    <div class="dashboard-box">
+  <h3>Panel Admin</h3>
+  <div class="dashboard-grid">
+    <!-- Ubah onclick agar memanggil fungsi tambahUser() -->
+    <div class="dashboard-item" onclick="tambahUser()">Tambah User</div>
+    <!-- Modal untuk Tambah User -->
+    <div id="modalTambahUser" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModalTambahUser()">&times;</span>
+        <h2>Tambah User Baru</h2>
+        <div class="input-group">
+          <input type="text" id="newUsername" placeholder="Username baru" />
         </div>
-      </div>
-
-      <div class="dashboard-box">
-        <h3>Grafik Aktivitas</h3>
-        <!-- Container untuk React component speed.jsx -->
-        <div id="speedChart"></div>
-      </div>
-
-      <div class="dashboard-box">
-        <h3>Manajemen Pengguna</h3>
-        <input type="text" id="searchInput" placeholder="Cari user..." onkeyup="renderUserList()" />
-        <div id="userList"></div>
+        <div class="input-group">
+          <input type="password" id="newPassword" placeholder="Password baru" />
+        </div>
+        <button class="btn-submit" onclick="submitTambahUser()">Tambah User</button>
       </div>
     </div>
 
-    <script>
-      let isLogin = true;
-      let users = JSON.parse(localStorage.getItem('users')) || [];
+    <div class="dashboard-item" onclick="showNotification('Kelola Konten dibuka')">Kelola Konten</div>
+    <div class="dashboard-item" onclick="showNotification('Pengaturan dibuka')">Pengaturan</div>
+    <div class="dashboard-item" onclick="showNotification('Laporan dibuka')">Laporan</div>
+  </div>
+</div>
 
-      function saveUsers() {
-        localStorage.setItem('users', JSON.stringify(users));
-      }
+    <div class="dashboard-box">
+      <h3>Grafik Aktivitas</h3>
+      <div style="margin-bottom: 20px; text-align: center;">
+		  <h4>Statistik Kecepatan</h4>
+		  <p>Download: <span id="downloadRealtime">0</span> Mbps |
+			 Max: <span id="downloadMax">0</span> |
+			 Min: <span id="downloadMin">0</span> |
+			 Avg: <span id="downloadAvg">0</span>
+		  </p>
+		  <p>Upload: <span id="uploadRealtime">0</span> Mbps |
+			 Max: <span id="uploadMax">0</span> |
+			 Min: <span id="uploadMin">0</span> |
+			 Avg: <span id="uploadAvg">0</span>
+		  </p>
+		</div>
+<canvas id="speedChart" width="600" height="300"></canvas>
+    </div>
 
-      function toggleForm() {
-        isLogin = !isLogin;
-        document.getElementById('form-title').innerText = isLogin ? 'Silahkan Login' : 'Pendaftaran';
-        document.getElementById('submit-btn').innerText = isLogin ? 'Login' : 'Daftar';
-      }
 
-      function showNotification(msg) {
-        const notif = document.getElementById('notification');
-        notif.innerText = msg;
-        notif.style.display = 'block';
-        setTimeout(() => notif.style.display = 'none', 3000);
-      }
 
-      function handleForm() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+    <div class="dashboard-box">
+      <h3>Manajemen Pengguna</h3>
+      <input type="text" id="searchInput" placeholder="Cari user..." onkeyup="renderUserList()" />
+      <div id="userList"></div>
+    </div>
+  </div>
 
-        if (isLogin) {
-          const user = users.find(u => u.username === username && u.password === password);
-          if (user) {
-            localStorage.setItem('loggedInUser', JSON.stringify(user));
-            loginSuccess();
-          } else {
-            showNotification('Username atau Password salah');
-          }
+  <script>
+    let isLogin = true;
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    function saveUsers() {
+      localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    function toggleForm() {
+      isLogin = !isLogin;
+      document.getElementById('form-title').innerText = isLogin ? 'Silahkan Login' : 'Pendaftaran';
+      document.getElementById('submit-btn').innerText = isLogin ? 'Login' : 'Daftar';
+    }
+
+    function showNotification(msg) {
+      const notif = document.getElementById('notification');
+      notif.innerText = msg;
+      notif.style.display = 'block';
+      setTimeout(() => notif.style.display = 'none', 3000);
+    }
+
+    function handleForm() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (isLogin) {
+        const user = users.find(u => u.username === username && u.password === password);
+        if (user) {
+          localStorage.setItem('loggedInUser', JSON.stringify(user));
+          loginSuccess();
         } else {
-          if (username && password) {
-            users.push({username, password});
-            saveUsers();
-            showNotification('Pendaftaran berhasil');
-            toggleForm();
-          } else {
-            showNotification('Harap isi username dan password');
-          }
+          showNotification('Username atau Password salah');
         }
-      }
-
-      function loginSuccess() {
-        const loginContainer = document.getElementById('loginContainer');
-        loginContainer.classList.add('fade-out');
-        setTimeout(() => {
-          loginContainer.style.display = 'none';
-          loginContainer.classList.remove('fade-out');
-          const dashboardContainer = document.getElementById('dashboardContainer');
-          const navbar = document.getElementById('navbar');
-          dashboardContainer.style.display = 'block';
-          navbar.style.display = 'flex';
-          dashboardContainer.classList.add('fade-in');
-          navbar.classList.add('fade-in');
-          setTimeout(() => {
-            dashboardContainer.classList.remove('fade-in');
-            navbar.classList.remove('fade-in');
-          }, 500);
-          renderUserList();
-          showNotification('Berhasil login');
-        }, 500);
-      }
-
-      function renderUserList() {
-        const filter = document.getElementById('searchInput')?.value.toLowerCase() || "";
-        const userList = document.getElementById('userList');
-        userList.innerHTML = users.map((u, i) => {
-          if (!u.username.toLowerCase().includes(filter)) return '';
-          return `<div class="user-item">
-            <span>${i + 1}. ${u.username}</span>
-            <button onclick="editUser(${i})">Edit</button>
-            <button onclick="deleteUser(${i})">Hapus</button>
-          </div>`;
-        }).join('');
-      }
-
-      function editUser(index) {
-        const newUsername = prompt('Edit Username:', users[index].username);
-        if (newUsername) {
-          users[index].username = newUsername;
+      } else {
+        if (username && password) {
+          users.push({username, password});
           saveUsers();
-          renderUserList();
-          showNotification('Username telah diperbarui');
+          showNotification('Pendaftaran berhasil');
+          toggleForm();
+        } else {
+          showNotification('Harap isi username dan password');
         }
       }
+    }
 
-      function deleteUser(index) {
-        if (confirm('Yakin ingin menghapus user ini?')) {
-          users.splice(index, 1);
-          saveUsers();
-          renderUserList();
-          showNotification('User berhasil dihapus');
-        }
-      }
-
-      function tambahUser() {
-        document.getElementById('modalTambahUser').style.display = 'block';
-      }
-
-      function closeModalTambahUser() {
-        document.getElementById('modalTambahUser').style.display = 'none';
-      }
-
-      function submitTambahUser() {
-        const newUsername = document.getElementById('newUsername').value.trim();
-        const newPassword = document.getElementById('newPassword').value;
-
-        if (!newUsername || !newPassword) {
-          showNotification("Username dan Password harus diisi");
-          return;
-        }
-        if (users.some(u => u.username === newUsername)) {
-          showNotification("Username sudah ada");
-          return;
-        }
-        users.push({ username: newUsername, password: newPassword });
-        saveUsers();
-        renderUserList();
-        showNotification("User berhasil ditambahkan");
-        document.getElementById('newUsername').value = '';
-        document.getElementById('newPassword').value = '';
-        closeModalTambahUser();
-      }
-
-      function toggleTheme() {
-        document.body.classList.toggle('dark');
-        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-      }
-
-      function logout() {
-        localStorage.removeItem('loggedInUser');
+    function loginSuccess() {
+      const loginContainer = document.getElementById('loginContainer');
+      loginContainer.classList.add('fade-out');
+      setTimeout(() => {
+        loginContainer.style.display = 'none';
+        loginContainer.classList.remove('fade-out');
         const dashboardContainer = document.getElementById('dashboardContainer');
         const navbar = document.getElementById('navbar');
-        dashboardContainer.classList.add('fade-out');
-        navbar.classList.add('fade-out');
+        dashboardContainer.style.display = 'block';
+        navbar.style.display = 'flex';
+        dashboardContainer.classList.add('fade-in');
+        navbar.classList.add('fade-in');
         setTimeout(() => {
-          dashboardContainer.style.display = 'none';
-          navbar.style.display = 'none';
-          dashboardContainer.classList.remove('fade-out');
-          navbar.classList.remove('fade-out');
-          const loginContainer = document.getElementById('loginContainer');
-          loginContainer.style.display = 'block';
-          loginContainer.classList.add('fade-in');
-          setTimeout(() => {
-            loginContainer.classList.remove('fade-in');
-          }, 500);
-          document.getElementById('username').value = '';
-          document.getElementById('password').value = '';
-          showNotification('Anda telah logout');
+          dashboardContainer.classList.remove('fade-in');
+          navbar.classList.remove('fade-in');
         }, 500);
+        loadChart();
+        renderUserList();
+        showNotification('Berhasil login');
+      }, 500);
+    }
+
+    function renderUserList() {
+      const filter = document.getElementById('searchInput')?.value.toLowerCase() || "";
+      const userList = document.getElementById('userList');
+      userList.innerHTML = users.map((u, i) => {
+        if (!u.username.toLowerCase().includes(filter)) return '';
+        return `<div class="user-item">
+          <span>${i + 1}. ${u.username}</span>
+          <button onclick="editUser(${i})">Edit</button>
+          <button onclick="deleteUser(${i})">Hapus</button>
+        </div>`;
+      }).join('');
+    }
+
+    function editUser(index) {
+      const newUsername = prompt('Edit Username:', users[index].username);
+      if (newUsername) {
+        users[index].username = newUsername;
+        saveUsers();
+        renderUserList();
+        showNotification('Username telah diperbarui');
       }
-    </script>
+    }
 
-    <!-- Muat React, ReactDOM, dan Babel untuk mendukung JSX -->
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    function deleteUser(index) {
+      if (confirm('Yakin ingin menghapus user ini?')) {
+        users.splice(index, 1);
+        saveUsers();
+        renderUserList();
+        showNotification('User berhasil dihapus');
+      }
+    }
 
-    <!-- Sertakan file speed.jsx (pastikan file speed.jsx berada di direktori yang sama) -->
-    <script type="text/babel" src="speed.jsx"></script>
 
-    <!-- Render komponen React ke container -->
-    <script type="text/babel">
-      ReactDOM.render(
-        <LiveChartWithValue />,
-        document.getElementById("speedChart")
-      );
-    </script>
-  </body>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    window.onload = () => {
+      if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark');
+      const user = JSON.parse(localStorage.getItem('loggedInUser'));
+      if (user) loginSuccess();
+    };
+	
+	// Fungsi untuk menambahkan user baru ke dalam manajemen pengguna
+    	// Fungsi untuk menampilkan modal tambah user
+    function tambahUser() {
+      document.getElementById('modalTambahUser').style.display = 'block';
+    }
+    
+    // Fungsi untuk menutup modal tambah user
+    function closeModalTambahUser() {
+      document.getElementById('modalTambahUser').style.display = 'none';
+    }
+    
+    // Fungsi untuk submit user baru dari modal
+    function submitTambahUser() {
+      const newUsername = document.getElementById('newUsername').value.trim();
+      const newPassword = document.getElementById('newPassword').value;
+      
+      if (!newUsername || !newPassword) {
+        showNotification("Username dan Password harus diisi");
+        return;
+      }
+      if (users.some(u => u.username === newUsername)) {
+        showNotification("Username sudah ada");
+        return;
+      }
+      users.push({ username: newUsername, password: newPassword });
+      saveUsers();
+      renderUserList();
+      showNotification("User berhasil ditambahkan");
+      // Kosongkan input dan tutup modal
+      document.getElementById('newUsername').value = '';
+      document.getElementById('newPassword').value = '';
+      closeModalTambahUser();
+    }
+
+   // Konfigurasi awal untuk chart kecepatan
+const ctxSpeed = document.getElementById('speedChart').getContext('2d');
+const maxDataPoints = 100;
+const initialLabels = Array.from({ length: maxDataPoints }, (_, i) => i);
+const downloadData = Array(maxDataPoints).fill(0);
+const uploadData = Array(maxDataPoints).fill(0);
+
+const speedChart = new Chart(ctxSpeed, {
+  type: 'line',
+  data: {
+    labels: initialLabels,
+    datasets: [
+      {
+        label: 'Download (Mbps)',
+        data: downloadData,
+        borderColor: 'blue',
+        backgroundColor: 'rgba(0, 0, 255, 0.1)',
+        fill: true,
+        tension: 0.2,
+      },
+      {
+        label: 'Upload (Mbps)',
+        data: uploadData,
+        borderColor: 'red',
+        backgroundColor: 'rgba(255, 0, 0, 0.1)',
+        fill: true,
+        tension: 0.2,
+      }
+    ]
+  },
+  options: {
+    animation: false,
+    scales: {
+      y: {
+        suggestedMin: 0,
+        suggestedMax: 120,
+      }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: '#fff' // Sesuaikan jika tema gelap
+        }
+      }
+    }
+  }
+});
+
+// Fungsi untuk memperbarui data chart secara berkala
+function updateSpeedChart() {
+  // Simulasikan data acak untuk kecepatan download dan upload
+  const newDownload = parseFloat((Math.random() * 100).toFixed(2));
+  const newUpload = parseFloat((Math.random() * 50).toFixed(2));
+  
+  // Hapus data paling lama dan tambahkan data baru
+  speedChart.data.datasets[0].data.shift();
+  speedChart.data.datasets[0].data.push(newDownload);
+  
+  speedChart.data.datasets[1].data.shift();
+  speedChart.data.datasets[1].data.push(newUpload);
+  
+  // Perbarui label (misalnya menampilkan waktu atau indeks)
+  speedChart.data.labels.shift();
+  const lastLabel = speedChart.data.labels[speedChart.data.labels.length - 1] || 0;
+  speedChart.data.labels.push(lastLabel + 1);
+  
+  speedChart.update();
+}
+
+// Perbarui chart setiap 500ms
+setInterval(() => {
+  updateSpeedChart();
+  updateStats();
+}, 500);
+
+
+
+function updateStats() {
+  const dData = speedChart.data.datasets[0].data;
+  const uData = speedChart.data.datasets[1].data;
+
+  const dMax = Math.max(...dData).toFixed(2);
+  const dMin = Math.min(...dData).toFixed(2);
+  const dAvg = (dData.reduce((a, b) => a + b, 0) / dData.length).toFixed(2);
+  const dLast = dData[dData.length - 1].toFixed(2);
+
+  const uMax = Math.max(...uData).toFixed(2);
+  const uMin = Math.min(...uData).toFixed(2);
+  const uAvg = (uData.reduce((a, b) => a + b, 0) / uData.length).toFixed(2);
+  const uLast = uData[uData.length - 1].toFixed(2);
+
+  document.getElementById('downloadRealtime').textContent = dLast;
+  document.getElementById('downloadMax').textContent = dMax;
+  document.getElementById('downloadMin').textContent = dMin;
+  document.getElementById('downloadAvg').textContent = dAvg;
+
+  document.getElementById('uploadRealtime').textContent = uLast;
+  document.getElementById('uploadMax').textContent = uMax;
+  document.getElementById('uploadMin').textContent = uMin;
+  document.getElementById('uploadAvg').textContent = uAvg;
+}
+
+
+    function logout() {
+      localStorage.removeItem('loggedInUser');
+      const dashboardContainer = document.getElementById('dashboardContainer');
+      const navbar = document.getElementById('navbar');
+      dashboardContainer.classList.add('fade-out');
+      navbar.classList.add('fade-out');
+      setTimeout(() => {
+        dashboardContainer.style.display = 'none';
+        navbar.style.display = 'none';
+        dashboardContainer.classList.remove('fade-out');
+        navbar.classList.remove('fade-out');
+        const loginContainer = document.getElementById('loginContainer');
+        loginContainer.style.display = 'block';
+        loginContainer.classList.add('fade-in');
+        setTimeout(() => {
+          loginContainer.classList.remove('fade-in');
+        }, 500);
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+        showNotification('Anda telah logout');
+      }, 500);
+    }
+  </script>
+</body>
 </html>
